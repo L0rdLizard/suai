@@ -1,7 +1,22 @@
 #include <stdio.h>
 
-int main (int argc, char *argv[]) {
+// Написать функцию, которая из двух массивов типа int, упорядоченных по убыванию, формирует новый массив двойной длины, упорядоченный по убыванию (слияние).
 
-    
+int merge(int arr1[], int arr2[]){
+
+}
+
+int main (int argc, char *argv[]) {
+   //privet
+   //dorov
+   // ты меня слышишь?
+   //а должен?
+   //там и такая фича есть
+   //там чат есть нормальный
+   //gde
+   //слева live share и там чат в сеансе
+   int arr1[100], arr2[100], arr3[200];
+   fgets(arr1, 100, stdin);
+   fgets(arr2, 100, stdin);
    return 0;
 }
