@@ -41,6 +41,7 @@ int main()
             }
             end = -1;
             start = -1;
+            print("n");
         }
     }
     return 0;
