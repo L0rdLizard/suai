@@ -17,17 +17,17 @@ int main (int argc, char *argv[]) {
    //gde
    //слева live share и там чат в сеансе
    int array1[101] = {0}, array2[101] = {0}, array3[202] = {0};
-   int count1 = 0, count2 = 0;
+   int size1 = 0, size2 = 0;
    fgets(array1, 101, stdin);
    fgets(array2, 101, stdin);
    for (int i = 0; i <= 101; i++){
-      if (array1[i] != 0) count1++;
+      if (array1[i] != 0) size1++;
    }
    for (int i = 0; i <= 101; i++){
-      if (array2[i] != 0) count2++;
+      if (array2[i] != 0) size2++;
    }
    int merge(array1, array2);
-   for (int i = 0; i <= (count1+count2); i++)
+   for (int i = 0; i <= (size1+size2); i++)
                     printf("%d", array3[i]);
                 printf("\n");
    return 0;
