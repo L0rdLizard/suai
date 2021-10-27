@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
    int array2[5] = {2, 3, 24, 69, 420};
    int newmass[10] = {0};
    int size1 = 5, size2 = 5;
-   merge(array1, array2, &newmass, size1, size2);
+   merge(array1, array2, newmass, size1, size2);
    for (int i = 0; i < (size1 + size2); i++)
       printf("%d ", newmass[i]);
    printf("\n");
