@@ -15,11 +15,16 @@ void merge(int *arr1, int *arr2, int *newmass, int size1, int size2)
     int arrj[5] = {0};
     for (i=0; i<= 5; i++)
     {
-        if (bred(arr1[i]) == 1) arri[i++] = 1;
-        else arri[i++] = 0;
-        if (bred(arr2[i]) == 1) arrj[i++] = 1;
-        else arrj[++i] = 0;
+        if (bred(arr1[i]) == 1) arri[i] = 1;
+        else arri[i] = 0;
     }
+    i = 0;
+    for (i=0; i<= 5; i++)
+    {
+        if (bred(arr2[i]) == 1) arrj[i] = 1;
+        else arrj[i] = 0;
+    }
+    i = 0;
     while(i<size1 && j<size2)
     {
         if (arri[i] >= arrj[j]) 
