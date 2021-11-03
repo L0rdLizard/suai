@@ -10,32 +10,32 @@ int bred(int a)
 }
 void merge(int *arr1, int *arr2, int *newmass, int size1, int size2)
 {
-    int i = 0, j = 0, k = 0, n = (size1+size2);
-    int arri[5] = {0};
-    int arrj[5] = {0};
-    for (i=0; i<= 5; i++)
+    int i = 0, j = 0, k = 0;
+    int arri[5];
+    int arrj[5];
+    for (i=0; i < 5; i++)
     {
-        if (bred(arr1[i]) == 1) arri[i] = 1;
-        else arri[i] = 0;
+        if (bred(arr1[i]) == 1) 
+            arri[i] = 1;
+        else
+            arri[i] = 0;
     }
-    i = 0;
-    for (i=0; i<= 5; i++)
+    for (i=0; i < 5; i++)
     {
-        if (bred(arr2[i]) == 1) arrj[i] = 1;
-        else arrj[i] = 0;
-    }
-    i = 0;
-    while(i<size1 && j<size2)
-    {
-        if (arri[i] >= arrj[j]) 
-            newmass[k++]=arr1[i++];
+        if (bred(arr2[i]) == 1) 
+            arrj[i] = 1;
         else 
-            newmass[k++]=arr2[j++]; 
+            arrj[i] = 0;
     }
-    while(i<size1)
-        newmass[k++]=arr1[i++];
-    while(j<size2)
-        newmass[k++]=arr2[j++]; 
+    i = 0;
+    while((i<5) && (j<5))
+    {
+        
+    }
+    while(i<5)
+        newmass[k++]=arri[i++];
+    while(j<5)
+        newmass[k++]=arrj[j++];
 }
 
 int main(int argc, char *argv[])
@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
    int newmass[10] = {0};
    int size1 = 5, size2 = 5;
    merge(array1, array2, newmass, size1, size2);
-   for (int i = 0; i < (size1 + size2); i++)
+   for (int i = 0; i < 10; i++)
       printf("%d ", newmass[i]);
    putchar('\n');
    return 0;
