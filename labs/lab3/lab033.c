@@ -10,7 +10,7 @@ int bred(int a)
 }
 void merge(int *arr1, int *arr2, int *newmass, int size1, int size2)
 {
-    int i = 0, j = 0, k = 0;
+    int i = 0, j = 0, k = 0, cnt = 0, n = (size1+size2);
     int arri[5];
     int arrj[5];
     for (i = 0; i < 5; i++)
@@ -28,17 +28,34 @@ void merge(int *arr1, int *arr2, int *newmass, int size1, int size2)
             arrj[i] = 0;
     }
     i = 0;
-    while(i<size1 && j<size2)
+
+
+    for (int i = 0; i < size1; i++)
     {
-        if (arr1[i] > arr2[j]) 
-            newmass[k++]=arr1[i++];
-        else 
-            newmass[k++]=arr2[j++]; 
+        newmass[cnt] = arr1[i];
+        cnt++;
     }
-    while(i<size1)
-        newmass[k++]=arr1[i++];
-    while(j<size2)
-        newmass[k++]=arr2[j++]; 
+
+
+    for (int i = 0; i < size2; i++)
+    {
+        newmass[cnt] = arr2[i];
+        cnt++;
+    }
+
+
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 0; j < n - i - 1; j++)
+        {
+            if (newmass[j] < newmass[j + 1])
+            {
+                int tmp = newmass[j];
+                newmass[j] = newmass[j + 1];
+                newmass[j + 1] = tmp;
+            }
+        }
+    }
 }
 
 int main(int argc, char *argv[])
