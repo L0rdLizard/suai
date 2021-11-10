@@ -30,7 +30,7 @@ void merge(int *arr1, int *arr2, int *newmass, int size1, int size2)
     i = 0;
     while(i<size1 && j<size2)
     {
-
+        
     }
 }
 
