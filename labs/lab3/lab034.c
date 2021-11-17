@@ -22,8 +22,16 @@ void merge(int *arr1, int *arr2, int *newmass, int size1, int size2)
         arri[cnt] = arr2[i];
         cnt++;
     }
-    
-
+    for (int i=0; i < (size1+size2); i++){
+        if (bred(arri[i]) == 1){
+            newmass[k++] = arri[i];
+        }
+    }
+    for (int i=0; i < (size1+size2); i++){
+        if (bred(arri[i]) == 0){
+            newmass[k++] = arri[i];
+        }
+    }
 }
 
 

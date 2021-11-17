@@ -13,7 +13,7 @@ int main()
 {
     int user_count, count;
     int start = -1, end = -1;
-    char str[101] = {0};
+    char str[101] = {-1};
     fgets(str, 101, stdin);
     scanf_s("%d", &user_count);
 
