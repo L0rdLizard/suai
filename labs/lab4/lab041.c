@@ -36,9 +36,9 @@ void sorting(char *str, int *startmass, int *endmass, int cur_word)
    int i = 0, j = 0;
    for (i = 0; i < cur_word; i++)
    {
-      for (j = 0; j < n - i - 1; j++)
+      for (j = 0; j < cur_word; j++)
       {
-         if (newmass[j] < newmass[j + 1])
+         if (dif(str, startmass[j], endmass[j], startmass[j+1], endmass[j+1]) == 1)
          {
             int tmp = newmass[j];
             newmass[j] = newmass[j + 1];
