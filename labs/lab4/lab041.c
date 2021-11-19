@@ -38,11 +38,17 @@ void sorting(char *str, int *startmass, int *endmass, int cur_word)
    {
       for (j = 0; j < cur_word; j++)
       {
-         if (dif(str, startmass[j], endmass[j], startmass[j+1], endmass[j+1]) == 1)
+         if (dif(str, startmass[j], endmass[j], startmass[j+1], endmass[j+1]) == -1)
          {
-            int tmp = newmass[j];
-            newmass[j] = newmass[j + 1];
-            newmass[j + 1] = tmp;
+            printf("%d %d\n", startmass[j], startmass[j+1]);
+            printf("%d %d\n", endmass[j], endmass[j+1]);
+            printf("\n");
+            int tmpst = startmass[j+1];
+            int tmpend = endmass[j+1];
+            startmass[j+1] = startmass[j];
+            endmass[j+1] = endmass[j];
+            startmass[j] = tmpst;
+            endmass[j] = tmpend;
          }
       }
    }
@@ -89,7 +95,12 @@ int main(int argc, char *argv[])
          }
       }
    }
-
-   sorting(str, );
+   sorting(str, startmass, endmass, cur_word );
+   for (int i=0; i < cur_word; i++){
+      for (int j=0; j < (endmass[i]-startmass[i]+1); j++){
+         printf("%c",str[startmass[i]+j]);
+      }
+      printf("\n");
+   }
    return 0;
 }

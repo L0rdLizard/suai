@@ -43,8 +43,8 @@ void merge(int *arr1, int *arr2, int *newmass, int size1, int size2)
 
 int main(int argc, char *argv[])
 {
-    int array1[] = {1, 1, 0, 0, 0};
-    int array2[] = {1, 0, 1, 0, 1};
+    int array1[] = {122, 64, 13, 3 ,1};
+    int array2[] = {80, 69, 24, 3, 2};
     int newmass[10] = {0};
     int size1 = 5, size2 = 5;
     merge(array1, array2, newmass, size1, size2);
