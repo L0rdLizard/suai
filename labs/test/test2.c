@@ -1,33 +1,25 @@
-#include<stdio.h>
-int main() 
+#include <stdio.h>
+
+int is_char(int ch)
 {
-    int i, j, k, c[2002], a[1001], b[1001];
-    int na, mb; 
-    scanf("%d %d", &na, &mb); 
-    for (i=0; i<na; i++)
+   if (
+       (65 <= ch && ch <= 90) || (97 <= ch && ch <= 122) ||
+       (128 <= ch && ch <= 175) || (224 <= ch && ch <= 239))
+      return 1;
+   else
+      return 0;
+}
+
+int main()
+{
+    int count = 0;
+    char word[16] = {0};
+    fgets(word, 16, stdin);
+    for (int i = 0; i < 16; i++)
     {
-        scanf("%d", &a[i]); 
+        if (is_char(word[i]) == 1)
+            count++;
     }
-    for (i=0; i<mb; i++)
-    {
-        scanf("%d", &b[i]);
-    }
-    i=0;j=0;k=0;
-    while(i<na && j<mb)
-    {
-        if (a[i] < b[j]) 
-            c[k++]=a[i++];
-        else 
-            c[k++]=b[j++]; 
-    }
-    while(i<na)
-        c[k++]=a[i++];
-    while(j<mb)
-        c[k++]=b[j++]; 
- 
-    for (i=0; i<k; i++) 
-    {
-        printf(" %d", c[i]); 
-    }
+    printf("%d", count);
     return 0;
 }
