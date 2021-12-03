@@ -1,25 +1,19 @@
 #include <stdio.h>
 
-int is_char(int ch)
+int main(int argc, char *argv[])
 {
-   if (
-       (65 <= ch && ch <= 90) || (97 <= ch && ch <= 122) ||
-       (128 <= ch && ch <= 175) || (224 <= ch && ch <= 239))
-      return 1;
-   else
-      return 0;
-}
-
-int main()
-{
-    int count = 0;
-    char word[16] = {0};
-    fgets(word, 16, stdin);
-    for (int i = 0; i < 16; i++)
+    int N = 5;
+     
+    int (*words)[2] = (int (*)[2])malloc( N * 2 * sizeof( int ) );
+    for (size_t i = 0; i < N; i++)
     {
-        if (is_char(word[i]) == 1)
-            count++;
+        words[i][0]=-1;
+        words[i][1]=-1;
     }
-    printf("%d", count);
+    for (size_t i = 0; i < N; i++)
+    {
+        printf("%d %d\n", words[i][0],words[i][1]);
+    }
+    
     return 0;
 }
