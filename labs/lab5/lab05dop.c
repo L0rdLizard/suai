@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 // Ввести строку и слово. Вывести порядковые номера слов в строке, совпадающих с введенным словом.
-int strrealloc(char *str, int countstr, int capacitystr)
+void strrealloc(char *str, int *countstr, int capacitystr)
 {
    int flag = 1;
    char c;
@@ -14,8 +14,8 @@ int strrealloc(char *str, int countstr, int capacitystr)
       }
       else
       {
-         str[(countstr)++] = c;
-         if (countstr >= capacitystr)
+         str[(*countstr)++] = c;
+         if (*countstr >= capacitystr)
          {
             capacitystr *= 2;
             str = (char *)realloc(str, capacitystr * sizeof(char));
@@ -24,7 +24,7 @@ int strrealloc(char *str, int countstr, int capacitystr)
    }
 }
 
-int wordrealloc(char *word, int countword, int capacityword)
+void wordrealloc(char *word, int *countword, int capacityword)
 {
    int flag = 1;
    char c;
@@ -36,8 +36,8 @@ int wordrealloc(char *word, int countword, int capacityword)
       }
       else
       {
-         word[(countword)++] = c;
-         if (countword >= capacityword)
+         word[(*countword)++] = c;
+         if (*countword >= capacityword)
          {
             capacityword *= 2;
             word = (char *)realloc(word, capacityword * sizeof(char));
@@ -78,25 +78,18 @@ int main(int argc, char *argv[])
 
    int countword = 0, capacityword = 1;
    char *word = (char *)malloc(sizeof(char));
-   wordrealloc(word, countword, capacityword);
+   wordrealloc(word, &countword, capacityword);
 
    int countstr = 0, capacitystr = 1;
    char *str = (char *)malloc(sizeof(char));
-   strrealloc(str, countstr, capacitystr);
+   strrealloc(str, &countstr, capacitystr);
 
-   int countstart = 0, capacitystart = 1;
-   // int *startmass = (int *)malloc(sizeof(int));
+   int bordercapacity = 1;
 
-   int countend = 0, capacityend = 1;
-   // int *endmass = (int *)malloc(sizeof(int));
-   int N = 2, M = 1;
-   int **A = (int **)malloc(N * sizeof(int *));
-   for (int i = 0; i < N; i++)
-   {
-      A[i] = (int *)malloc(M * sizeof(int));
-   }
-
+   int(*bordermass)[2] = (int(*)[2])malloc(bordercapacity * 2 * sizeof(int));
+   int bordercount = 0;
    int cur_word = 0;
+   borderrealloc(str,bordercapacity, bordercount, cur_word, countstr);
    for (int i = 0; i < countstr; i++)
    {
       if (is_char(str[i]) == 1)
@@ -104,23 +97,24 @@ int main(int argc, char *argv[])
          if (start == -1)
          {
             start = i;
-            bordermass[(countstart)++][0] = start;
-            if (countstart >= capacitystart)
+            // printf("start %d\n", start);
+            bordermass[(bordercount)][0] = start;
+            if (bordercount >= bordercapacity)
             {
-               capacitystart *= 2;
-               bordermass = (int *)realloc(bordermass, capacitystart * sizeof(int));
+               bordercapacity *= 2;
+               bordermass = (int(*)[2])realloc(bordermass, bordercapacity * 2 * sizeof(int));
             }
          }
          if (i == countstr - 1)
          {
             end = i;
-            bordermass[(countend)++][1] = end;
-            if (countend >= capacityend)
+            // printf("end last%d\n", end);
+            bordermass[(bordercount)++][1] = end;
+            if (bordercount >= bordercapacity)
             {
-               capacityend *= 2;
-               bordermass = (int *)realloc(bordermass, capacityend * sizeof(int));
+               bordercapacity *= 2;
+               bordermass = (int(*)[2])realloc(bordermass, bordercapacity * 2 * sizeof(int));
             }
-
             cur_word++;
             start = -1;
             end = -1;
@@ -131,11 +125,12 @@ int main(int argc, char *argv[])
          if (end == -1 && start != -1)
          {
             end = i - 1;
-            bordermass[(countend)++][1] = end;
-            if (countend >= capacityend)
+            // printf("end %d\n", end);
+            bordermass[(bordercount)++][1] = end;
+            if (bordercount >= bordercapacity)
             {
-               capacityend *= 2;
-               bordermass = (int *)realloc(bordermass, capacityend * sizeof(int));
+               bordercapacity *= 2;
+               bordermass = (int(*)[2])realloc(bordermass, bordercapacity * 2 * sizeof(int));
             }
             cur_word++;
             start = -1;
@@ -145,13 +140,13 @@ int main(int argc, char *argv[])
    }
    for (int i = 0; i < cur_word; i++)
    {
+      // printf("%d %d\n",bordermass[i][0], bordermass[i][1]);
       if (is_same(str, word, bordermass[i][0], bordermass[i][1], cur_word, countword) == 1)
       {
          printf("%d ", (i + 1));
       }
    }
-   // free(startmass);
-   // free(endmass);
+
    free(bordermass);
    free(str);
    free(word);
