@@ -314,10 +314,11 @@ size_t sizecounter(list_t *l)
 	size_t totalsize = 0;
 	for (size_t i = 0; i < l->size; i++)
 	{
-		totalsize += get(l, i)->capacity;
+		totalsize += get(l, i)->size;
 		//printf("%d\n", totalsize);
 	}
 	return totalsize;
+
 }
 
 int main(int argc, char *argv[])
@@ -337,10 +338,9 @@ int main(int argc, char *argv[])
 	readstr(filestruct1->arr, filestruct1->size, &list1);
 	readstr(filestruct2->arr, filestruct2->size, &list2);
 	readstr(filestruct3->arr, filestruct3->size, &list3);
-
+	
 	merge_list_t(&list1, &merge1);
 	merge_list_t(&list2, &merge1);
-
 	merge_list_t(&list1, &merge2);
 	merge_list_t(&list3, &merge2);
 
@@ -348,7 +348,7 @@ int main(int argc, char *argv[])
 	remove_duplicates(&merge2);
 	size_t totalsize1 = sizecounter(&merge1);
 	size_t totalsize2 = sizecounter(&merge2);
-
+	printf("%d - %d\n", totalsize1, totalsize2);
 	if (totalsize1 < totalsize2)
 		print_list(&merge1);
 	else
@@ -365,6 +365,6 @@ int main(int argc, char *argv[])
 	free(filestruct1);
 	free(filestruct2);
 	free(filestruct3);
-
+	
 	return 0;
 }
