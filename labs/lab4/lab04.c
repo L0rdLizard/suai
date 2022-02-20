@@ -26,6 +26,6 @@ int main()
     int count = 0;
     //fgets(words, 101, stdin);
     sort_words(words, count);
-    print("%c", words);
+    printf("%c", words);
     return 0;
 }
