@@ -9,7 +9,7 @@ int counter(int data)
         w = w + (x & 1);
         x = x >> 1;
     }
-    printf("%d", w);
+    printf("%d\n", w);
 
     return w;
 }
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
             break;
         else if (input >= count)
             break;
-        printf("%d\n", mass[input]);
+        printf("result = %d\n", mass[input]);
     }
     return 0;
 }
