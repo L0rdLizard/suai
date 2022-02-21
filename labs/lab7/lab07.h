@@ -1,3 +1,3 @@
 #pragma once
 
-void ltoab(long data, char s[]);
+void ltoab(long data, char s[], int d);
