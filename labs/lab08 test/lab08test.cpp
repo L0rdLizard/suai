@@ -1,17 +1,19 @@
 #include <iostream>
+#include <math.h>
 using namespace std;
 
 struct node
 {
-    int koef;
-    int power;
+    // x * x - 9 * x + 14
+    int koef;  // 1, -9, 14
+    int power; // 2, 1, 0
     node *next;
 };
 
-bool empty_polinom(node *top)
-{
-    return top == NULL;
-}
+// bool empty_polinom(node *top)
+// {
+//     return top == NULL;
+// }
 
 void create_polinom(node *&top, node *&end, int n)
 {
@@ -46,13 +48,25 @@ double F(double x)
     return x * x - 9 * x + 14;
 }
 
-double FindRoot(double (*f)(double), double a, double b, double eps)
+double F2(node *&top, double x)
+{
+    double result = 0;
+    node * cur = top;
+    while (1){
+        if (cur == NULL) break;
+        result += cur->koef * pow(x, cur->power);
+        cur = cur->next;
+    }
+    return result;
+}
+
+double FindRoot(double (*f)(node*&, double), double a, double b, double eps, node *&top)
 {
     double c;
     while ((b - a) / 2 > eps)
     {
         c = (a + b) / 2;
-        if ((f(a) * f(c)) > 0)
+        if ((f(top, a) * f(top, c)) > 0)
             a = c;
         else
             b = c;
@@ -62,20 +76,19 @@ double FindRoot(double (*f)(double), double a, double b, double eps)
 
 int main()
 {
-    // node *top_polinom, *end_polinom;
-    // int n;
-    // cout << "enter n= ";
-    // cin >> n;
-    // node **mass = (node **)malloc(sizeof(node *) * n);
-    // create_polinom(top_polinom, end_polinom, n);
+    node *top_polinom, *end_polinom;
+    int n;
+    cout << "enter n= ";
+    cin >> n;
+    node **mass = (node **)malloc(sizeof(node *) * n);
+    create_polinom(top_polinom, end_polinom, n);
 
     double a, b, eps, x;
     cout << "interval: ";
     cin >> a;
     cin >> b;
 
-
-    if (F(a) * F(b) > 0)
+    if (F2(top_polinom, a) * F2(top_polinom, b) > 0)
     {
         cout << "Wrong interval!\n";
         return 0;
@@ -83,11 +96,8 @@ int main()
     cout << "error: ";
     cin >> eps;
 
-    x = FindRoot(F, a, b, eps);
+    x = FindRoot(F2, a, b, eps, top_polinom);
     cout << "x = " << x << endl;
-    return 0;
-
-
 
     return 0;
 }
