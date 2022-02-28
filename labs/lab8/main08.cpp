@@ -5,18 +5,31 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
-    int n;
-
     node *top_polinom, *end_polinom;
-    node *top_polinom1, *end_polinom1;
-    node *top_polinom2, *end_polinom2;
-    node *top_polinom3, *end_polinom3;
-
-    cout << "enter n= ";
+    int n;
+    cout << "enter n = ";
     cin >> n;
+    cout << "\n";
+    // node **mass = (node **)malloc(sizeof(node *) * n);
     create_polinom(top_polinom, end_polinom, n);
+
+    double a, b, eps, x;
+    cout << "interval: ";
+    cin >> a;
+    cin >> b;
+
+    if (F2(top_polinom, a) * F2(top_polinom, b) > 0)
+    {
+        cout << "Wrong interval!\n";
+        return 0;
+    }
+    cout << "eps: ";
+    cin >> eps;
+
+    x = FindRoot(F2, a, b, eps, top_polinom);
+    cout << "x = " << x << endl;
 
     return 0;
 }

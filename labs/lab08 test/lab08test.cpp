@@ -80,7 +80,7 @@ int main()
     int n;
     cout << "enter n= ";
     cin >> n;
-    node **mass = (node **)malloc(sizeof(node *) * n);
+    // node **mass = (node **)malloc(sizeof(node *) * n);
     create_polinom(top_polinom, end_polinom, n);
 
     double a, b, eps, x;
