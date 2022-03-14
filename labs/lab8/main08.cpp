@@ -19,10 +19,10 @@ int main()
     cout << "interval: ";
     cin >> a;
     cin >> b;
-
+    // cout << F2(top_polinom, a) * F2(top_polinom, b) << "\n";
     if (F2(top_polinom, a) * F2(top_polinom, b) > 0)
     {
-        cout << "Wrong interval!\n";
+        cout << "Wrong data or interval!\n";
         return 0;
     }
     cout << "eps: ";

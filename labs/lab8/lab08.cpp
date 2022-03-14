@@ -19,11 +19,14 @@ void create_polinom(node *&top, node *&end, int n)
     end = NULL;
     for (i = 0; i < n; i++)
     {
+        static int temp_n = n;
         p = new node;
-        cout << " enter koef=";
+        cout << " enter koef" << n - temp_n + 1 << "=";
         cin >> p->koef;
-        cout << " enter power=";
-        cin >> p->power;
+        // cout << " enter power=";
+        // cin >> p->power;
+        p->power = (temp_n - 1);
+        temp_n = temp_n - 1;
         cout << "\n";
         if (i == 0)
         {
@@ -49,6 +52,7 @@ double F2(node *&top, double x)
         result += cur->koef * pow(x, cur->power);
         cur = cur->next;
     }
+    // cout << result << "\n";
     return result;
 }
 

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LAB08_H_
+#define LAB08_H_
 
 struct node
 {
@@ -13,3 +14,4 @@ void create_polinom(node *&top, node *&end, int n);
 double F2(node *&top, double x);
 
 double FindRoot(double (*f)(node*&, double), double a, double b, double eps, node *&top);
+#endif

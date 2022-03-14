@@ -11,9 +11,9 @@ int main(int argc, char *argv[])
         long data;
         int d = 0;
         printf("enter the number and system definition\n");
-        scanf_s("%ld", &data);
+        scanf("%ld", &data);
         if (data == -1) exit(1);
-        scanf_s("%d", &d);
+        scanf("%d", &d);
         if (d == -1) exit(1);
         ltoab(data, p, d);
         printf("%s\n", p, d);
