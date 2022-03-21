@@ -27,7 +27,7 @@ char count_ones(unsigned long long n)
     }
     return w;
 }
-void main()
+int main()
 {
     int mass[9] = {0};
     unsigned int n_32 = 0;
@@ -65,4 +65,5 @@ void main()
     {
         printf("%d ", mass[i]);
     }
+    return 0;
 }
