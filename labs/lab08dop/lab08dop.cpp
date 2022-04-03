@@ -5,7 +5,7 @@ using namespace std;
 struct node
 {
     // x * x - 9 * x + 14
-    int koef;  // 1, -9, 14
+    double koef;  // 1, -9, 14
     int power; // 2, 1, 0
     node *next;
 };
@@ -68,4 +68,14 @@ double FindRoot(double (*f)(node*&, double), double a, double b, double eps, nod
             b = c;
     }
     return c;
+}
+
+void del(node *&top1, node *&top2, node *&res, int n1, int n2){
+    node *cur1 = top1;
+    node *cur2 = top2;
+    int i;
+    int n = max(n1, n2);
+    for (i = 0; i < n; i++){
+        
+    }
 }
