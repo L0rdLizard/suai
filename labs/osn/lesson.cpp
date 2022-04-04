@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
     int x = 1, w = 0;
     do
     {
-        scanf_s("%d", &x);
+        scanf("%d", &x);
         int z = x;
         while (z > 0)
         {
