@@ -22,15 +22,15 @@ int main(int argc, char *argv[])
         mass[i] = counter(i);
     }
     printf("\n");
-    int input;
-    while (1)
-    {
-        scanf_s("%d", &input);
-        if (input <= -1)
-            break;
-        else if (input >= count)
-            break;
-        printf("result = %d\n", mass[input]);
-    }
+    // int input;
+    // while (1)
+    // {
+    //     scanf_s("%d", &input);
+    //     if (input <= -1)
+    //         break;
+    //     else if (input >= count)
+    //         break;
+    //     printf("result = %d\n", mass[input]);
+    // }
     return 0;
 }
