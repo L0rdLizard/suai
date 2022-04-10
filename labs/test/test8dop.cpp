@@ -10,16 +10,16 @@ struct node
     node *next;
 };
 
-
 void create_polinom(node *&top, node *&end, int n)
 {
     int i;
     node *p;
     top = NULL;
     end = NULL;
+    int temp_n = n;
     for (i = 0; i < n; i++)
-    {
-        static int temp_n = n;
+    {   
+        // static int temp_n = n;
         p = new node;
         cout << " enter koef" << n - temp_n + 1 << "=";
         cin >> p->koef;
@@ -86,29 +86,36 @@ void del(node *top1, node *top2, node *top3, node *end3)
     }
 }
 
-double F2(node *&top, double x)
+int main()
 {
-    double result = 0;
-    node * cur = top;
-    while (1){
-        if (cur == NULL) break;
-        result += cur->koef * pow(x, cur->power);
-        cur = cur->next;
-    }
-    // cout << result << "\n";
-    return result;
-}
+    node *top_polinom1, *end_polinom1;
+    node *top_polinom2, *end_polinom2;
+    node *top_polinom3, *end_polinom3;
+    int n1;
+    cout << "enter n1 = ";
+    cin >> n1;
+    cout << "\n";
+    create_polinom(top_polinom1, end_polinom1, n1);
 
-double FindRoot(double (*f)(node*&, double), double a, double b, double eps, node *&top)
-{
-    double c;
-    while ((b - a) / 2 > eps)
-    {
-        c = (a + b) / 2;
-        if ((f(top, a) * f(top, c)) > 0)
-            a = c;
-        else
-            b = c;
-    }
-    return c;
+    int n2;
+    cout << "enter n2 = ";
+    cin >> n2;
+    cout << "\n";
+    create_polinom(top_polinom2, end_polinom2, n2);
+
+    int n3;
+    cout << "enter n3 = ";
+    cin >> n3;
+    cout << "\n";
+    create_polinom(top_polinom3, end_polinom3, n3);
+    // top_polinom3->koef = 1;
+    // top_polinom3->power = 1;
+    // top_polinom3->next = NULL;
+    // end_polinom3->koef = 1;
+    // end_polinom3->power = 1;
+    // end_polinom3->next = NULL;
+
+    del(top_polinom1, top_polinom2, top_polinom3, end_polinom3);
+
+    return 0;
 }
