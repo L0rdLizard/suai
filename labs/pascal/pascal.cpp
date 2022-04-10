@@ -5,10 +5,9 @@ using namespace std;
 
 int main()
 {
-
     long long n = 1, i = 1, k = 1;
     cin >> n;
-    unsigned long long c[n+1] = {0};
+    unsigned long long c[66] = {0};
     c[0] = 1;
     for (k = 1; k <= n; k++)
     {
