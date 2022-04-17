@@ -88,7 +88,7 @@ void del(node *top1, node *top2, node *top3, node *end3)
         {
             node *temp1 = top1;
             node *temp_cur = top_cur;
-            top1->koef =  top;
+            top1->koef =  0;
         }
     }
 }

@@ -9,7 +9,7 @@ int main(){
         printf("%c", b[i]);
     }
     cout << endl;
-    int a = 3;
+    int a = 2;
     printf("  %c%c%c   %c%c%c\n %c   %c %c   %c\n%c     %c     %c\n%c           %c\n%c           %c\n %c         %c\n  %c       %c\n   %c     %c\n    %c   %c\n     %c %c\n      %c \n", a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a);
     return 0;
 }
