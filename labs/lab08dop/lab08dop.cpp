@@ -81,7 +81,11 @@ void del(node *top1, node *top2, node *top3, node *end3)
         while (cur_temp != NULL)
         {
             addToPoly(top_cur, end_cur, cur_temp->power + temp_power, cur_temp->koef * temp_koef, counter2);
+            cur_temp = cur_temp->next;
             counter2++;
+        }
+        for(int i = 0; i < counter2; i++){
+            
         }
     }
 }

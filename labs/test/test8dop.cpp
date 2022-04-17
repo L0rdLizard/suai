@@ -43,7 +43,7 @@ void create_polinom(node *&top, node *&end, int n)
     }
 }
 
-void addToPoly(node*& top, node*& end, int power, int koef, int counter_nnode)
+void addToPoly(node*& top, node*& end, int power, double koef, int counter_nnode)
 {
     // cout << "counter node: " << counter_nnode;
     node* p = new node;
@@ -81,7 +81,14 @@ void del(node *top1, node *top2, node *top3, node *end3)
         while (cur_temp != NULL)
         {
             addToPoly(top_cur, end_cur, cur_temp->power + temp_power, cur_temp->koef * temp_koef, counter2);
+            cur_temp = cur_temp->next;
             counter2++;
+        }
+        for (int i = 1; i < counter2; i++)
+        {
+            node *temp1 = top1;
+            node *temp_cur = top_cur;
+            top1->koef =  top;
         }
     }
 }
