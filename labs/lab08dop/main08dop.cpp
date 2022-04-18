@@ -1,6 +1,6 @@
 // Ввести степень и коэффициенты полинома. Ввести границы интервала a, b и точность eps. Найти корень полинома на интервале [a, b] методом деления отрезка пополам (считать, что p(a) * p(b) < 0).
 
-#include "lab08.h"
+#include "lab08dop.h"
 #include <stdio.h>
 #include <iostream>
 using namespace std;
@@ -22,20 +22,22 @@ int main()
     cout << "\n";
     create_polinom(top_polinom2, end_polinom2, n2);
 
-    double a, b, eps, x;
-    cout << "interval: ";
-    cin >> a;
-    cin >> b;
-    if (F2(top_polinom1, a) * F2(top_polinom1, b) > 0)
-    {
-        cout << "Wrong data or interval!\n";
-        return 0;
-    }
-    cout << "eps: ";
-    cin >> eps;
+    int n3;
+    cout << "enter n3 = ";
+    cin >> n3;
+    cout << "\n";
+    create_polinom(top_polinom3, end_polinom3, n3);
+    // top_polinom3->koef = 1;
+    // top_polinom3->power = 1;
+    // top_polinom3->next = NULL;
+    // end_polinom3->koef = 1;
+    // end_polinom3->power = 1;
+    // end_polinom3->next = NULL;
 
-    x = FindRoot(F2, a, b, eps, top_polinom1);
-    cout << "x = " << x << endl;
-
+    del(top_polinom1, end_polinom1, top_polinom2, top_polinom3, end_polinom3);
+    cout << "result = ";
+    printf_poly(top_polinom3);
+    cout << " ostatok = ";
+    printf_poly(top_polinom1);
     return 0;
 }
