@@ -5,8 +5,8 @@ using namespace std;
 struct node
 {
     // x * x - 9 * x + 14
-    double koef;  // 1, -9, 14
-    int power; // 2, 1, 0
+    double koef; // 1, -9, 14
+    int power;   // 2, 1, 0
     node *next;
 };
 
@@ -18,7 +18,7 @@ void create_polinom(node *&top, node *&end, int n)
     end = NULL;
     int temp_n = n;
     for (i = 0; i < n; i++)
-    {   
+    {
         // static int temp_n = n;
         p = new node;
         cout << " enter koef" << n - temp_n + 1 << "=";
@@ -43,10 +43,10 @@ void create_polinom(node *&top, node *&end, int n)
     }
 }
 
-void addToPoly(node*& top, node*& end, int power, double koef, int counter_nnode)
+void addToPoly(node *&top, node *&end, int power, double koef, int counter_nnode)
 {
     // cout << "counter node: " << counter_nnode;
-    node* p = new node;
+    node *p = new node;
     p->power = power;
     p->koef = koef;
     if (counter_nnode == 0)
@@ -63,13 +63,19 @@ void addToPoly(node*& top, node*& end, int power, double koef, int counter_nnode
     }
 }
 
-void del(node *top1, node *top2, node *top3, node *end3)
+void zero_destroyer(node *top1, node *end1){
+    node *temp = top1;
+    
+}
+
+void del(node *top1, node *end1, node *top2, node *top3, node *end3)
 {
     int counter = 0;
     while ((top1 != NULL) && (top1->power >= top2->power))
     {
         node *top_cur;
         node *end_cur;
+
         double temp_koef = top1->koef / top2->koef;
         int temp_power = top1->power - top2->power;
 
@@ -84,12 +90,21 @@ void del(node *top1, node *top2, node *top3, node *end3)
             cur_temp = cur_temp->next;
             counter2++;
         }
-        for (int i = 1; i < counter2; i++)
+
+        node *temp1 = top1;
+        node *temp2 = top_cur;
+        for (int i = 0; i <= counter2; i++)
         {
-            node *temp1 = top1;
-            node *temp_cur = top_cur;
-            top1->koef =  0;
+            // node *temp_cur = top_cur;
+            // top1->koef =  0;
+            if (temp2 != NULL)
+            {
+                temp1->koef -= temp2->koef;
+                temp1 = temp1->next;
+                temp2 = temp2->next;
+            }
         }
+        zero_destroyer(top1, end1);
     }
 }
 
@@ -122,7 +137,7 @@ int main()
     // end_polinom3->power = 1;
     // end_polinom3->next = NULL;
 
-    del(top_polinom1, top_polinom2, top_polinom3, end_polinom3);
+    del(top_polinom1, end_polinom1, top_polinom2, top_polinom3, end_polinom3);
 
     return 0;
 }
