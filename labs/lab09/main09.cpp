@@ -6,20 +6,13 @@ using namespace std;
 
 int main()
 {
-    char arr1[6] = {'1', '2', '3', '4', '5', '6'};
-    char arr2[6] = {'5', '3', '7', '1', '9', '3'};
-    int result[7] = {0};
+    char arr1[6] = {'5', '3', '7', '1', '9', '3'};
+    char arr2[6] = {'1', '2', '3', '4', '5', '6'};
+    int result1[7] = {0};
+    int result2[6] = {0};
     // int count_result = max(sizeof(arr1), sizeof(arr2)) + 1;
     // int *result = new int[count_result];
-    summ(arr1, arr2, result);
-    for (int i = 0; i < 6; i++)
-        cout << arr1[i];
-    cout << " + ";
-    for (int i = 0; i < 6; i++)
-        cout << arr2[i];
-    cout << " = ";
-    for (int i = result[0] == 0 ? 1 : 0; i < 7; i++)
-        cout << result[i];
-    cout << endl;
+    summ(arr1, arr2, result1);
+    razn(arr1, arr2, result2);
     return 0;
 }
