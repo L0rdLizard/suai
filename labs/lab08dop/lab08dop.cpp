@@ -93,38 +93,47 @@ void del(node *&top1, node *&end1, node *&top2, node *&top3, node *&end3)
         {
             addToPoly(top_cur, end_cur, cur_temp->power + temp_power, cur_temp->koef * temp_koef, counter2);
             cur_temp = cur_temp->next;
+            end_cur->next = NULL;
             counter2++;
         }
 
         node *temp1 = top1;
         node *temp2 = top_cur;
-        node *greshok_top;
-        node *greshok_end;
+        node *back_top;
+        node *back_end;
         int counterg = 0;
-        for (int i = 0; i <= counter2; i++)
+        for (int i = 0; i <= counter2 + 1; i++)
         {
             if (temp2 != NULL)
             {
                 // temp1->koef -= temp2->koef;
                 if (temp1->koef - temp2->koef != 0)
                 {
-                    addToPoly(greshok_top, greshok_end, temp1->power, temp1->koef - temp2->koef, counterg);
-                    greshok_end->next = NULL;
+                    addToPoly(back_top, back_end, temp1->power, temp1->koef - temp2->koef, counterg);
+                    back_end->next = NULL;
                     counterg++;
+                }
+                if ((temp1->next == NULL) && (temp1->koef - temp2->koef == 0))
+                {
+                    back_top = NULL;
                 }
                 temp1 = temp1->next;
                 temp2 = temp2->next;
             }
             else
             {
-                addToPoly(greshok_top, greshok_end, temp1->power, temp1->koef, counterg);
-                greshok_end->next = NULL;
-                counterg++;
+                if (temp1 != NULL)
+                {
+                    addToPoly(back_top, back_end, temp1->power, temp1->koef, counterg);
+                    back_end->next = NULL;
+                    temp1 = temp1->next;
+                    counterg++;
+                }
             }
         }
-        top1 = greshok_top;
-        end1 = greshok_end;
-        cout << " ";
+        top1 = back_top;
+        end1 = back_end;
+        // cout << " ";
     }
 }
 
@@ -143,7 +152,7 @@ void printf_poly(node *&top3)
             first = 0;
         }
         else
-            cout << (poly->koef >= 0 ? " +" : " ") << poly->koef;
+            cout << (poly->koef >= 0 ? " + " : " ") << poly->koef;
         if (poly->power != 0)
             if (poly->power == 1)
                 cout << "x";
