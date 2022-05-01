@@ -10,6 +10,6 @@ int main(){
     }
     cout << endl;
     int a = 254;
-    printf("  %c%c%c   %c%c%c\n %c   %c %c   %c\n%c     %c     %c\n%c           %c\n%c           %c\n %c         %c\n  %c       %c\n   %c     %c\n    %c   %c\n     %c %c\n      %c \n", a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a);
+    printf("  %c%c%c  %c%c%c  /n", a);
     return 0;
 }
