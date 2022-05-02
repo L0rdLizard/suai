@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <iostream>
 using namespace std;
 
 int main(){
@@ -8,8 +7,7 @@ int main(){
     {
         printf("%c", c[i]);
     }
-    cout << endl;
-    cout << endl;
+    printf("\n");
     int a = 219;
     int b = 178;
 
