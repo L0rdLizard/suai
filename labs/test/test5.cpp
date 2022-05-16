@@ -2,7 +2,7 @@
 int main()
 {
     int x, i = 1, otvet = 0;
-    scanf_s("%d", &x);
+    scanf("%d", &x);
     while (x > 0)
     {
         otvet += x % 2 * i;

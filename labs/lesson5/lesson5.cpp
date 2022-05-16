@@ -67,6 +67,5 @@ int main() {
     printf("\n");
     printf("%d, %d, %d", CodeBook[0], CodeBook[1], CodeBook[2]);
     printf("\n");
-    // я не понимаю почему, но оно работает
     return 0;
 }
