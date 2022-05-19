@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    char arr1[6] = {'5', '3', '7', '1', '9', '3'};
+    char arr1[7] = {'1', '5', '3', '7', '1', '9', '3'};
     char arr2[6] = {'1', '2', '3', '4', '5', '6'};
     int *result1 = (int *)malloc(sizeof(int));
     int *result2 = (int *)malloc(sizeof(int));
@@ -36,8 +36,8 @@ int main()
         result3[i] = 0;
     }
 
-    summ(arr1, arr2, result1, count_result1);
-    razn(arr1, arr2, result2, count_result2);
+    summ(arr1, arr2, result1, count_result1, sizeof(arr1), sizeof(arr2));
+    razn(arr1, arr2, result2, count_result2, sizeof(arr1), sizeof(arr2));
     umn(arr1, arr2, result3, sizeof(arr1), sizeof(arr2));
     return 0;
 }
