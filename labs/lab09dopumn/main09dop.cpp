@@ -6,8 +6,8 @@ using namespace std;
 
 int main()
 {
-    char arr1[7] = {'1', '5', '3', '7', '1', '9', '3'};
-    char arr2[6] = {'1', '2', '3', '4', '5', '6'};
+    char arr1[7] = {'-', '5', '3', '7', '1', '9', '3'};
+    char arr2[6] = { '1', '2', '3', '4', '5', '6'};
     int *result = (int *)malloc(sizeof(int));
 
 
