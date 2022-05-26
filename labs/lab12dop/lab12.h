@@ -34,11 +34,11 @@ class Birthday {
             last_name = b_last_name;
         }
 
-        void set_age(int *b_age)
+        void set_age(int b_age)
         {
-            for (int i = 0; i < 3; ++i) {
-                age[i] = b_age[i];
-            }
+ 
+                age = b_age;
+
         }
 
     private:

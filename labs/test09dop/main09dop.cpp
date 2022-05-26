@@ -6,10 +6,14 @@ using namespace std;
 
 int main()
 {
-    char arr1[7] = {'-', '5', '3', '7', '1', '9', '3'};
-    char arr2[6] = {'1', '2', '3', '4', '5', '6'};  
-    // char arr1[8] = {'5', '1', '2', '1', '4', '3', '5', '8'};
-    // char arr2[8] = {'1', '2', '3', '4', '5', '6', '3', '0'};
+    char arr1[2] = { '7', '7'};
+    char arr2[4] = { '-', '3', '5', '1'};
+    // char arr1[6] = {'5', '3', '7', '1', '9', '3'};
+    // char arr2[7] = {'-', '1', '2', '3', '4', '5', '6'};
+    // char arr1[6] = {'5', '3', '7', '1', '9', '3'};
+    // char arr2[6] = {'-', '2', '3', '4', '5', '6'};
+    // char arr1[7] = {'-', '5', '3', '7', '1', '9', '3'};
+    // char arr2[3] = { '4', '5', '6'};
     int *result1 = (int *)malloc(sizeof(int));
     int *result2 = (int *)malloc(sizeof(int));
     int *result3 = (int *)malloc(sizeof(int));
@@ -38,8 +42,8 @@ int main()
         result3[i] = 0;
     }
 
-    summ(arr1, arr2, result1, count_result1, sizeof(arr1), sizeof(arr2));
-    raznost(arr1, arr2, result2, count_result2, sizeof(arr1), sizeof(arr2));
+    summ(arr1, arr2, result1, count_result1, sizeof(arr1), sizeof(arr2), 0);
+    raznost(arr1, arr2, result2, count_result2, sizeof(arr1), sizeof(arr2), 0);
     umn(arr1, arr2, result3, sizeof(arr1), sizeof(arr2));
     return 0;
 }
