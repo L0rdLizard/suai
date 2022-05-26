@@ -6,14 +6,18 @@ using namespace std;
 
 int main()
 {
-    char arr1[2] = { '7', '7'};
-    char arr2[4] = { '-', '3', '5', '1'};
-    // char arr1[6] = {'5', '3', '7', '1', '9', '3'};
-    // char arr2[7] = {'-', '1', '2', '3', '4', '5', '6'};
+    // char arr1[1] = { '7'};
+    // char arr2[4] = { '-', '3', '5', '1'};
+
+    char arr1[6] = {'5', '3', '7', '1', '9', '3'};
+    char arr2[7] = {'-', '1', '2', '3', '4', '5', '6'};
+
     // char arr1[6] = {'5', '3', '7', '1', '9', '3'};
     // char arr2[6] = {'-', '2', '3', '4', '5', '6'};
+
     // char arr1[7] = {'-', '5', '3', '7', '1', '9', '3'};
     // char arr2[3] = { '4', '5', '6'};
+    
     int *result1 = (int *)malloc(sizeof(int));
     int *result2 = (int *)malloc(sizeof(int));
     int *result3 = (int *)malloc(sizeof(int));

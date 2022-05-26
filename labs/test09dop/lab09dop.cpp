@@ -56,21 +56,50 @@ void summ(char *arr1, char *arr2, int *result, int n, int size_a, int size_b, in
             result[i] %= 10;
         }
 
+        if (size_a - ots1 > size_b - ots2)
+        {
+            a = (size_a - ots1) - (size_b - ots2);
+        }
+
+        if (size_b - ots2 > size_a - ots1)
+        {
+            b = (size_b - ots2) - (size_a - ots1);
+        }
+
         if (a != 0)
         {
-            for (int i = ots1; i < a + ots2; i++)
+            for (int i = a - ots2; i >= ots1; i--)
             {
-                result[i + 1] += ((int)arr1[i] - 48);
+                if ((size_a - ots1) == (size_b - ots2))
+                    break;
+                result[i+1] += ((int)arr1[i] - 48);
             }
         }
 
         if (b != 0)
         {
-            for (int i = ots2; i < b + ots1; i++)
+            for (int i = b - ots1; i >= ots2; i--)
             {
-                result[i + 1] += ((int)arr2[i] - 48);
+                if ((size_a - ots1) == (size_b - ots2))
+                    break;
+                result[i+1] += ((int)arr2[i] - 48);
             }
         }
+        // if (a != 0)
+        // {
+        //     for (int i = ots1; i < a + ots2; i++)
+        //     {
+        //         result[i + 1] += ((int)arr1[i] - 48);
+        //     }
+        // }
+
+        // if (b != 0)
+        // {
+        //     for (int i = ots2; i < b + ots1; i++)
+        //     {
+        //         result[i + 1] += ((int)arr2[i] - 48);
+        //     }
+        // }
 
         for (int i = 0; i < size_a; i++)
             cout << arr1[i];
@@ -101,7 +130,7 @@ void summ(char *arr1, char *arr2, int *result, int n, int size_a, int size_b, in
             cout << " = -";
         else
             cout << " = ";
-        int count = 0;    
+        int count = 0;
         while (result[count] == 0)
         {
             count++;
