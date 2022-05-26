@@ -72,15 +72,17 @@ int main()
         book2[i]= t;
         t++;
     }
-    int e = 0xb;
+    int e = 1;
     int m = 3;
     int a = coder(m);
     int b = channel(a, e);
     int h = hemming(a, b);
-    // printf("%x\n", a);
-    // printf("%x\n", e);
-    // printf("%x\n", b);
-    // printf("%x\n", h);
+    // int m1 = decoder(m);
+    // printf("%d", m1);
+    printf("%x\n", a);
+    printf("%x\n", e);
+    printf("%x\n", b);
+    printf("%x\n", h);
     int min = min_dist(book);
     printf("%x\n", min);
 
