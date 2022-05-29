@@ -48,7 +48,6 @@ void summ(char *arr1, char *arr2, int *result, int n, int size_a, int size_b, in
             if (arr1[i + a] == '-' || arr2[i + b] == '-')
                 continue;
             result[i + razn] += ((int)arr1[i + a] - 48) + ((int)arr2[i + b] - 48);
-            // cout << result[i + razn] << ' ' << i << endl;
         }
         for (int i = n - 1; i >= 0; i--)
         {

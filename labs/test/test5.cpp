@@ -9,6 +9,8 @@ int main()
         i *= 10;
         x /= 2;
     }
-    printf("%d", otvet);
+    printf("%d\n", otvet);
+    int a = 12 & 15;
+    printf("%d", a);
     return 0;
 }
