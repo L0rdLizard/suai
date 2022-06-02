@@ -52,4 +52,7 @@ int main()
     cout << "e:	" << bin(e) << endl;
     cout << "c:	" << bin(c) << endl;
     cout << "d:	" << bin(d) << endl;
+    // cout << "test	" << m << endl;
+    // cout << "test	" << A[m] << endl;
+    // printf("%d", A[m]);
 }
