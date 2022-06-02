@@ -49,5 +49,8 @@ int main()
     summ(arr1, arr2, result1, count_result1, sizeof(arr1), sizeof(arr2), 0);
     raznost(arr1, arr2, result2, count_result2, sizeof(arr1), sizeof(arr2), 0);
     umn(arr1, arr2, result3, sizeof(arr1), sizeof(arr2));
+    free(result1);
+    free(result2);
+    free(result3);
     return 0;
 }
