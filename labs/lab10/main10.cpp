@@ -1,9 +1,10 @@
 //Подсчитать частоту появления каждого ключевого слова языка С в символьном файле с программой на С.
 #include <stdio.h>
 #include <iostream>
+#include <string.h>
 using namespace std;
 
-int Search(char line[], char word[])
+int Search(char* line, char* word)
 {
     char *p, *start;
     int count = 0;
@@ -46,6 +47,7 @@ int main()
         ni += Search(s, "if");
     }
     fclose(fp);
+    puts("File f1 has words:");
     printf("'for' %d times,\n'while' %d times,\n'do' %d times,\n and 'if' %d times.\n", nf, nw, nd, ni);
     return 0;
 }
