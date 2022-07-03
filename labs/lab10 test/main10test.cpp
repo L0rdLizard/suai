@@ -20,11 +20,12 @@ int main()
     char s[128];
     FILE *fp;
     fp = fopen("f1.txt", "r");
+    char* a = "for";
     while(fgets(s, 128, fp)){
-        nf += Search(s, "for");
-        nw += Search(s, "while");
-        nd += Search(s, "do");
-        ni += Search(s, "if");
+        nf += Search(s, a);
+        // nw += Search(s, "while");
+        // nd += Search(s, "do");
+        // ni += Search(s, "if");
     }
     fclose(fp);
     puts("File f1 has words:");
