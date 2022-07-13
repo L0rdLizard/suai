@@ -35,6 +35,7 @@ int main()
     char *a = "for";
     while (fgets(s, 128, fp) != NULL)
     {
+
         nf += Search(s, "for");
         nw += Search(s, "while");
         nd += Search(s, "do");
@@ -55,3 +56,4 @@ int main()
     printf("'for' %d times,\n'while' %d times,\n'do' %d times,\n'if' %d times.\n", nf, nw, nd, ni);
     return 0;
 }
+

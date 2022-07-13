@@ -14,7 +14,14 @@ int Search(char *line, char *word)
         if (p == NULL)
             break;
         count++;
-        start = p + strlen(word);
+        int count = 0;
+        while (1)
+        {
+            if (word[count] == NULL)
+                break;
+            count++;
+        }
+        start = p + count;
     }
     return count;
 }
