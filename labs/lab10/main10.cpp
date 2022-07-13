@@ -3,10 +3,23 @@
 #include <iostream>
 using namespace std;
 
+int len(char *str)
+{
+    int count = 0;
+    while (1)
+    {
+        if (str[count] == NULL)
+            break;
+        count++;
+    }
+    return count;
+}
+
 int Search(char *line, char *word)
 {
     char *p, *start;
     int count = 0;
+    int lenght = len(word);
     start = line;
     while (1)
     {
@@ -14,14 +27,7 @@ int Search(char *line, char *word)
         if (p == NULL)
             break;
         count++;
-        int count = 0;
-        while (1)
-        {
-            if (word[count] == NULL)
-                break;
-            count++;
-        }
-        start = p + count;
+        start = p + lenght;
     }
     return count;
 }
