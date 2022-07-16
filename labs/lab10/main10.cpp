@@ -1,6 +1,7 @@
 //Подсчитать частоту появления каждого ключевого слова языка С в символьном файле с программой на С.
 #include <stdio.h>
 #include <iostream>
+#include <string.h>
 using namespace std;
 
 int len(char *str)

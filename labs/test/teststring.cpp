@@ -10,7 +10,7 @@ int main(){
     int a = 0, b = 0;
     while(1) {
         int count = 0;
-        if (str[b] == NULL) break;
+        if (str[b] == 0) break;
         b++; 
     }
     a = strlen(str);
