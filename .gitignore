@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-.vscode/
+# .vscode/
 compile/
 
 # Object files
@@ -53,6 +53,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-.vscode/c_cpp_properties.json
-.vscode/launch.json
-.vscode/tasks.json
+# .vscode/c_cpp_properties.json
+# .vscode/launch.json
+# .vscode/tasks.json
