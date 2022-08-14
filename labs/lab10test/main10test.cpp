@@ -54,6 +54,7 @@ int main()
     // }
     puts("File f1 has words:");
     printf("'for' %d times,\n'while' %d times,\n'do' %d times,\n'if' %d times.\n", nf, nw, nd, ni);
+    cout << "abc";
     return 0;
 }
 
