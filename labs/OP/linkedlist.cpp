@@ -2,7 +2,24 @@
 #include <ostream>
 using namespace std;
 
-node_t &get(int n)
+class node_t
+{
+private:
+    int val;
+    node_t *next = NULL;
+
+public:
+    node_t(int val)
+    {
+        this->val = val;
+    }
+    node_t *getnext()
+    {
+        return this->next;
+    }
+};
+
+node_t& get(int n)
 {
     node_t *cur = this->head;
     for (int i = 0; i < n; n++)
