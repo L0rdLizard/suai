@@ -10,7 +10,7 @@ int main(){
 
     summa = a + b;
 
-    
+    //Это я, Нася
     printf("summa a+b ravno %d \n", summa);
 
     //не хочу картошки
