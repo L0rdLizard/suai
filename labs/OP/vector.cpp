@@ -88,16 +88,19 @@ public:
         free(data);
     }
 };
-
+// Нася тут была (Люблю Максю)
 int main()
 {
+    // int mass[] = {1, 2, 3};
+    // mass[5] = 10;
     vector_t abc(3);
     abc[0] = 1;
     abc[1] = 2;
     abc[2] = 3;
-    abc.erase(6, 3);
-    // abc.push_back(4);
-    // abc.push_front(0);
+    abc.erase(6, 2);
+    abc.push_back(6);
+    abc.push_front(6);
     cout << abc << endl;
     return 0;
 }
+// Тю <3
