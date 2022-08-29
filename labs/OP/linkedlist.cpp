@@ -5,6 +5,7 @@ using namespace std;
 class node_t
 {
 private:
+
     int val;
     node_t *next = NULL;
 
@@ -19,15 +20,34 @@ public:
     }
 };
 
-node_t& get(int n)
+class list_t
 {
-    node_t *cur = this->head;
-    for (int i = 0; i < n; n++)
+private:
+    node_t* head;
+    size_t size;
+public:
+
+    list_t()
     {
-        cur = cur.getnext;
+        head = NULL;
+        size = 0;
     }
-    return cur;
-}
+
+    list_t(list_t &l)
+    {
+
+    }
+};
+
+// node_t& get(int n)
+// {
+//     node_t *cur = this->head;
+//     for (int i = 0; i < n; n++)
+//     {
+//         cur = cur.getnext;
+//     }
+//     return cur;
+// }
 
 int main()
 {
