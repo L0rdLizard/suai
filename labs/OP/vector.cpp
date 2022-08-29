@@ -49,8 +49,38 @@ public:
     void push_back(int n)
     {
         size++;
-        data = (int*)realloc(data, sizeof(int)*size);
+        // data = (int*)realloc(data, sizeof(int)*size);
+        int *cur_data = (int *)malloc(sizeof(int) * size);
+        cur_data[0] = n;
+        for (int i = 0; i < size - 1; i++)
+            cur_data[i] = data[i];
+        free(data);
+        data = cur_data;
         data[size - 1] = n;
+    }
+
+    void push_front(int n)
+    {
+        size++;
+        int *cur_data = (int *)malloc(sizeof(int) * size);
+        for (int i = 1; i < size; i++)
+            cur_data[i] = data[i - 1];
+        free(data);
+        data = cur_data;
+        data[0] = n;
+    }
+
+    void erase(int n, int pos)
+    {
+        size++;
+        int *cur_data = (int *)malloc(sizeof(int) * size);
+        for (int i = 0; i < pos; i++)
+            cur_data[i] = data[i];
+        cur_data[pos] = n;
+        for (int i = pos + 1; i < size; i++)
+            cur_data[i] = data[i - 1];
+        free(data);
+        data = cur_data;
     }
 
     ~vector_t()
@@ -65,7 +95,9 @@ int main()
     abc[0] = 1;
     abc[1] = 2;
     abc[2] = 3;
-    abc.push_back(4);
+    abc.erase(6, 3);
+    // abc.push_back(4);
+    // abc.push_front(0);
     cout << abc << endl;
     return 0;
 }
