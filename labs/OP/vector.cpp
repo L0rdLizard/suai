@@ -32,6 +32,7 @@ public:
         data = (int *)malloc(sizeof(int) * size);
         for (int i = 0; i < size; i++)
             data[i] = v.data[i];
+        return *this;  
     }
 
     int &operator[](size_t index)
@@ -51,7 +52,6 @@ public:
         size++;
         // data = (int*)realloc(data, sizeof(int)*size);
         int *cur_data = (int *)malloc(sizeof(int) * size);
-        cur_data[0] = n;
         for (int i = 0; i < size - 1; i++)
             cur_data[i] = data[i];
         free(data);
@@ -94,13 +94,19 @@ int main()
     // int mass[] = {1, 2, 3};
     // mass[5] = 10;
     vector_t abc(3);
+    // vector_t abc2(1);
     abc[0] = 1;
     abc[1] = 2;
     abc[2] = 3;
-    abc.erase(6, 2);
-    abc.push_back(6);
-    abc.push_front(6);
+    // abc2 = abc;
+    // vector_t abc2 = abc;
+    vector_t abc2(abc);
+    // abc2 = abc;
+    // abc.erase(6, 2);
+    // abc.push_back(6);
+    // abc.push_front(6);
     cout << abc << endl;
+    cout << abc2 << endl;
     return 0;
 }
 // Тю <3
