@@ -11,4 +11,12 @@ int main(){
     {
         cout << v[i] << endl;
     }
+
+    vector<point> v2(5, {1, 2, 3});
+    v2.push_back({4, 5, 6});
+
+    for (size_t i = 0; i < v2.size(); i++)
+    {
+        cout << v2[i] << endl;
+    }
 }

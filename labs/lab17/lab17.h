@@ -1,4 +1,18 @@
 #include <iostream>
+#include <ostream>
+
+struct point
+{
+    int x;
+    int y;
+    int z;
+
+    friend std::ostream& operator<<(std::ostream& os, const point& p)
+    {
+        os << p.x << ", " << p.y << ", " << p.z;
+        return os;
+    }
+};
 
 // class vector(size_t size, const T& value) on template type T using new delete declarations function push_back, erase(size_t i) (trow exception), at (trow exception), size, operator[], insert(size_t i, const T& value) (trow exception), 
 template <typename T>
