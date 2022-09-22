@@ -14,6 +14,7 @@ int main(){
 
     vector<point> v2(5, {1, 2, 3});
     v2.push_back({4, 5, 6});
+    v2.insert(8, {7, 8, 9});
 
     for (size_t i = 0; i < v2.size(); i++)
     {
