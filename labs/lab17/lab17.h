@@ -14,7 +14,7 @@ struct point
     }
 };
 
-// class vector(size_t size, const T& value) on template type T using new delete declarations function push_back, erase(size_t i) (trow exception), at (trow exception), size, operator[], insert(size_t i, const T& value) (trow exception), 
+
 template <typename T>
 class vector
 {
