@@ -15,6 +15,8 @@ class notebook
         friend std::ostream& operator<<(std::ostream& os, const notebook& n);
         void load(const std::string& filename);
         void save(const std::string& filename);
+        void loadyaml(const std::string& filename);
+        void saveyaml(const std::string& filename);
     private:
         std::map<std::string, unsigned long> phonebook;
 };

@@ -1,4 +1,5 @@
 #include "notebook.h"
+#include "yaml-cpp/yaml.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -68,4 +69,36 @@ void notebook :: save(const std::string& filename)
     {
         file << it->first << " " << it->second << endl;
     }
+}
+
+void notebook :: loadyaml(const std::string& filename)
+{
+    ofstream outfile;
+    outfile.open("outfile.yaml");
+    ifstream file("outfile.yaml");
+    string name;
+    unsigned long phone;
+    while (file >> name >> phone)
+    {
+        phonebook[name] = phone;
+    }
+}
+
+void notebook :: saveyaml(const std::string& filename)
+{
+    ofstream outfile;
+    outfile.open("outfile.yaml");
+
+    YAML::Emitter out;
+    out << YAML::BeginSeq;
+
+    for (auto it = phonebook.begin(); it != phonebook.end(); it++)
+    {
+        out << YAML::BeginMap;
+        out << YAML::Key << "Name" << YAML::Value << it->first;
+        out << YAML::Key << "Phone" << YAML::Value << it->second;
+        out << YAML::EndMap;
+    }
+    out << YAML::EndSeq;
+    outfile << out.c_str();
 }

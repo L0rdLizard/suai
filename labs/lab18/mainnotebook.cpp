@@ -1,6 +1,9 @@
 #include "notebook.h"
+#include "yaml-cpp/yaml.h"
 #include <iostream>
 #include <string>
+#include <map>
+#include <fstream>
 using namespace std;
 
 void do_read()
@@ -19,8 +22,9 @@ void do_write()
     n.save("phonebook.txt");
 }
 
-void some_test(){
-        notebook n;
+void some_test()
+{
+    notebook n;
     n.add("John", 123456789);
     n.add("Mary", 987654321);
 
@@ -38,7 +42,8 @@ void some_test(){
     // n.load("phonebook.txt");
 }
 
-void test_save_file(){
+void test_save_file()
+{
     notebook n;
 
     n.add("John", 123456789);
@@ -48,19 +53,62 @@ void test_save_file(){
     cout << n;
 }
 
-void test_load_file(){
+void test_load_file()
+{
     notebook n1;
 
     n1.load("phonebook.txt");
     cout << n1;
 }
 
-int main(){
+void test_yaml()
+{
+    // vector<int> squares;
+    // squares.push_back(1);
+    // squares.push_back(4);
+    // squares.push_back(9);
+    // squares.push_back(16);
+    ofstream outfile;
+    outfile.open("outfile.yaml");
+
+    if (outfile.is_open() == 1)
+    {
+        cout << "Happy New Year" << endl;
+    }
+    else
+    {
+        cout << "Novogo goda ne budet" << endl;
+    }
+
+    std::map<std::string, int> ages;
+    ages["Daniel"] = 26;
+    ages["Jesse"] = 24;
+
+    // YAML::Emitter out;
+    // out << YAML::BeginSeq;
+    // out << YAML::Flow << ages;
+    // out << YAML::EndSeq;
+    // outfile << out.c_str();
+
+    YAML::Node node;                        // starts out as null
+    node["key"] = "value";                  // it now is a map node
+    node["seq"].push_back("first element"); // node["seq"] automatically becomes a sequence
+    node["seq"].push_back("second element");
+}
+
+int main()
+{
     // some_test();
     // test_save_file();
     // test_load_file();
+    // notebook n;
+    // n.load("phonebook.txt");
+    // cout << n;
+    test_yaml();
     notebook n;
-    n.load("phonebook.txt");
-    cout << n;
+
+    n.add("John", 123456789);
+    n.add("Mary", 987654321);
+    n.saveyaml("outfile.yaml");
     return 0;
 }
