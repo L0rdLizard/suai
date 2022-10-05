@@ -32,6 +32,7 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${fileDirname}/*.cpp",
+                "/usr/local/lib/libyaml-cpp.a",
                 "-o",
                 "${workspaceFolder}/compile/${fileBasenameNoExtension}"
             ],
