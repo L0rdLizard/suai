@@ -71,18 +71,14 @@ void notebook :: save(const std::string& filename)
     }
 }
 
-void notebook :: loadyaml(const std::string& filename)
-{
-    ofstream outfile;
-    outfile.open("outfile.yaml");
-    ifstream file("outfile.yaml");
-    string name;
-    unsigned long phone;
-    while (file >> name >> phone)
-    {
-        phonebook[name] = phone;
-    }
-}
+// void notebook :: loadyaml(const std::string& filename)
+// {
+//     YAML::Node node = YAML::LoadFile(filename);
+//     for (auto it = node.begin(); it != node.end(); it++)
+//     {
+//         phonebook[it->first.as<string>()] = it->second.as<unsigned long>();
+//     }
+// }
 
 void notebook :: saveyaml(const std::string& filename)
 {
@@ -101,4 +97,13 @@ void notebook :: saveyaml(const std::string& filename)
     }
     out << YAML::EndSeq;
     outfile << out.c_str();
+}
+
+void notebook :: loadyaml(const std::string& filename)
+{
+    YAML::Node node = YAML::LoadFile(filename);
+    for (auto it = node.begin(); it != node.end(); it++)
+    {
+        phonebook[it->first.as<string>()] = it->second.as<unsigned long>();
+    }
 }

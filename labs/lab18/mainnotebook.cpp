@@ -104,11 +104,16 @@ int main()
     // notebook n;
     // n.load("phonebook.txt");
     // cout << n;
-    test_yaml();
-    notebook n;
+    // test_yaml();
 
-    n.add("John", 123456789);
-    n.add("Mary", 987654321);
-    n.saveyaml("outfile.yaml");
+    // notebook n;
+    notebook n2;
+
+    // n.add("John", 123456789);
+    // n.add("Mary", 987654321);
+    // n.saveyaml("outfile.yaml");
+
+    n2.loadyaml("outfile.yaml");
+    cout << n2 << endl;
     return 0;
 }
