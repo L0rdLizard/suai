@@ -39,6 +39,7 @@ class vector_t
         T& operator[](size_t i);
         void insert(size_t i, const T& value);
         void saveyaml(const std::string& filename);
+        void loadyaml(const std::string& filename);
     private:
         T* data;
         size_t size_p;
@@ -154,7 +155,17 @@ void vector_t<T>::saveyaml(const std::string& filename)
     fout << out.c_str();
 }
 
-// template <typename T>
+template <typename T>
+void vector_t<T>::loadyaml(const std::string& filename)
+{
+    YAML::Node node = YAML::LoadFile(filename);
+    size_p = node.size();
+    data = new T[size_p];
+    for (size_t i = 0; i < size_p; i++)
+    {
+        data[i] = node[i].as<T>();
+    }
+}
 
 
 

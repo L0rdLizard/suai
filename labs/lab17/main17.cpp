@@ -3,10 +3,18 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     // vector_t<int> v(5, 2);
-    vector_t<point> v(5, {1, 2, 3});
-    v.saveyaml("test.yaml");
+    // vector_t<point> v(5, {1, 2, 3});
+    // v.saveyaml("test.yaml");
+
+    vector_t<int> v2(0, 0);
+    v2.loadyaml("test.yaml");
+    for (int i = 0; i < v2.size(); i++)
+    {
+        cout << v2[i] << endl;
+    }
 
     // v.push_back(2);
 
