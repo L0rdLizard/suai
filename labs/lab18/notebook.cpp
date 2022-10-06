@@ -71,14 +71,6 @@ void notebook :: save(const std::string& filename)
     }
 }
 
-// void notebook :: loadyaml(const std::string& filename)
-// {
-//     YAML::Node node = YAML::LoadFile(filename);
-//     for (auto it = node.begin(); it != node.end(); it++)
-//     {
-//         phonebook[it->first.as<string>()] = it->second.as<unsigned long>();
-//     }
-// }
 
 void notebook :: saveyaml(const std::string& filename)
 {
@@ -105,5 +97,5 @@ void notebook :: loadyaml(const std::string& filename)
     for (auto it = node.begin(); it != node.end(); it++)
     {
         phonebook[it->first.as<string>()] = it->second.as<unsigned long>();
-    }
+    } 
 }
