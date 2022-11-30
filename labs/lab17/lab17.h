@@ -9,14 +9,14 @@ struct point
     int y;
     int z;
 
-    friend std::ostream& operator<<(std::ostream& os, const point& p)
+    friend std::ostream &operator<<(std::ostream &os, const point &p)
     {
         os << p.x << ", " << p.y << ", " << p.z;
         return os;
     }
 };
 
-void operator << (YAML::Emitter& out, const point& p)
+void operator<<(YAML::Emitter &out, const point &p)
 {
     out << YAML::BeginMap;
     out << YAML::Key << "x" << YAML::Value << p.x;
@@ -25,28 +25,35 @@ void operator << (YAML::Emitter& out, const point& p)
     out << YAML::EndMap;
 }
 
+void operator>>(const YAML::Node &node, point &p)
+{
+    p.x = node["x"].as<int>();
+    p.y = node["y"].as<int>();
+    p.z = node["z"].as<int>();
+}
 
 template <typename T>
 class vector_t
 {
-    public:
-        vector_t(size_t size, const T& value);
-        ~vector_t();
-        void push_back(const T& value);
-        void erase(size_t i);
-        T& at(size_t i);
-        size_t size();
-        T& operator[](size_t i);
-        void insert(size_t i, const T& value);
-        void saveyaml(const std::string& filename);
-        void loadyaml(const std::string& filename);
-    private:
-        T* data;
-        size_t size_p;
+public:
+    vector_t(size_t size, const T &value);
+    ~vector_t();
+    void push_back(const T &value);
+    void erase(size_t i);
+    T &at(size_t i);
+    size_t size();
+    T &operator[](size_t i);
+    void insert(size_t i, const T &value);
+    void saveyaml(const std::string &filename);
+    void loadyaml(const std::string &filename);
+
+private:
+    T *data;
+    size_t size_p;
 };
 
 template <typename T>
-vector_t<T>::vector_t(size_t size, const T& value)
+vector_t<T>::vector_t(size_t size, const T &value)
 {
     size_p = size;
     data = new T[size];
@@ -63,9 +70,9 @@ vector_t<T>::~vector_t()
 }
 
 template <typename T>
-void vector_t<T>::push_back(const T& value)
+void vector_t<T>::push_back(const T &value)
 {
-    T* temp = new T[size_p + 1];
+    T *temp = new T[size_p + 1];
     for (size_t i = 0; i < size_p; i++)
     {
         temp[i] = data[i];
@@ -83,7 +90,7 @@ void vector_t<T>::erase(size_t i)
     {
         throw std::out_of_range("Out of range");
     }
-    T* temp = new T[size_p - 1];
+    T *temp = new T[size_p - 1];
     for (size_t j = 0; j < i; j++)
     {
         temp[j] = data[j];
@@ -98,7 +105,7 @@ void vector_t<T>::erase(size_t i)
 }
 
 template <typename T>
-T& vector_t<T>::at(size_t i)
+T &vector_t<T>::at(size_t i)
 {
     if (i >= size_p)
     {
@@ -114,19 +121,19 @@ size_t vector_t<T>::size()
 }
 
 template <typename T>
-T& vector_t<T>::operator[](size_t i)
+T &vector_t<T>::operator[](size_t i)
 {
     return data[i];
 }
 
 template <typename T>
-void vector_t<T>::insert(size_t i, const T& value)
+void vector_t<T>::insert(size_t i, const T &value)
 {
     if (i >= size_p)
     {
         throw std::out_of_range("Out of range");
     }
-    T* temp = new T[size_p + 1];
+    T *temp = new T[size_p + 1];
     for (size_t j = 0; j < i; j++)
     {
         temp[j] = data[j];
@@ -142,7 +149,7 @@ void vector_t<T>::insert(size_t i, const T& value)
 }
 
 template <typename T>
-void vector_t<T>::saveyaml(const std::string& filename)
+void vector_t<T>::saveyaml(const std::string &filename)
 {
     YAML::Emitter out;
     out << YAML::BeginSeq;
@@ -166,7 +173,3 @@ void vector_t<T>::loadyaml(const std::string& filename)
         data[i] = node[i].as<T>();
     }
 }
-
-
-
-    

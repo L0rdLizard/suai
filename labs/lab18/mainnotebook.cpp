@@ -67,22 +67,23 @@ void test_yaml()
     // squares.push_back(1);
     // squares.push_back(4);
     // squares.push_back(9);
-    // squares.push_back(16);
-    ofstream outfile;
-    outfile.open("outfile.yaml");
+    // // squares.push_back(16);
 
-    if (outfile.is_open() == 1)
-    {
-        cout << "Happy New Year" << endl;
-    }
-    else
-    {
-        cout << "Novogo goda ne budet" << endl;
-    }
+    // ofstream outfile;
+    // outfile.open("outfile.yaml");
 
-    std::map<std::string, int> ages;
-    ages["Daniel"] = 26;
-    ages["Jesse"] = 24;
+    // if (outfile.is_open() == 1)
+    // {
+    //     cout << "Happy New Year" << endl;
+    // }
+    // else
+    // {
+    //     cout << "Novogo goda ne budet" << endl;
+    // }
+
+    // std::map<std::string, int> ages;
+    // ages["Daniel"] = 26;
+    // ages["Jesse"] = 24;
 
     // YAML::Emitter out;
     // out << YAML::BeginSeq;
