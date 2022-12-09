@@ -9,6 +9,9 @@ using namespace std;
 int main()
 {
     graph g("text.txt");
-    cout << g;
+    // cout << g << endl;
+    string prefix = "";
+    g.dfs1(g.root, prefix);
+    cout << g << endl;
     return 0;
 }

@@ -15,9 +15,11 @@ class graph
 {
 private:
     std::map<int, gnode> nodes;
-    int root;
 
 public:
+    int root;
     graph(const string filename);
-    friend std::ostream& operator<<(std::ostream& os, graph& gr);
+    friend std::ostream &operator<<(std::ostream &os, graph &gr);
+    void dfs1(int cur, string &prefix);
+    void dfs2(int cur, string &prefix);
 };

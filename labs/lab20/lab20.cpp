@@ -47,16 +47,46 @@ graph::graph(const string filename)
     }
 }
 
-ostream& operator<<(ostream& os, graph& gr) {
+ostream &operator<<(ostream &os, graph &gr)
+{
 
-    map<int, gnode> ::iterator it = gr.nodes.begin();
+    map<int, gnode>::iterator it = gr.nodes.begin();
     cout << "Root: " << gr.root << "\n";
-    for (int i = 0; it != gr.nodes.end(); it++, i++) 
+    for (int i = 0; it != gr.nodes.end(); it++, i++)
     {
-        cout << i << ") Key " << it->first << ", value " << "{ ";
+        cout << i << ") Key " << it->first << ", value "
+             << "{ ";
         for (size_t t = 0; t < it->second.data.size(); t++)
             cout << it->second.data[t] << ", ";
         cout << "}\n";
     }
     return os;
+}
+
+void graph::dfs1(int cur, string &prefix)
+{
+    nodes[cur].visited = true;
+    cout << prefix << " -> " << cur << "\n";
+    for (int i = 0; i < nodes[cur].data.size(); i++)
+    {
+        if (nodes[nodes[cur].data[i]].visited == false)
+        {
+            string new_prefix = prefix + " -> " + to_string(cur);
+            dfs1(nodes[cur].data[i], new_prefix);
+        }
+    }
+}
+
+void graph::dfs2(int cur, string &prefix)
+{
+    nodes[cur].visited = true;
+    cout << prefix << " -> " << cur << "\n";
+    for (int i = 0; i < nodes[cur].data.size(); i++)
+    {
+        if (nodes[nodes[cur].data[i]].visited == false)
+        {
+            string new_prefix = prefix + " -> " + to_string(cur);
+            dfs2(nodes[cur].data[i], new_prefix);
+        }
+    }
 }
