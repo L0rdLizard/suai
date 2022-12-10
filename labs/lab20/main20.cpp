@@ -10,8 +10,14 @@ int main()
 {
     graph g("text.txt");
     // cout << g << endl;
-    string prefix = "";
-    g.dfs1(g.root, prefix);
+    g.dfs1(g.root);
+
+    cout << endl;
+    g.dfs2(g.root);
+
+    cout << endl;
+    // g.dfs3(g.root);
+
     cout << g << endl;
     return 0;
 }
