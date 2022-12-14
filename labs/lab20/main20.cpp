@@ -11,21 +11,15 @@ int main()
     vector<int> history;
     vector<vector<int>> pairs_back; 
     graph g("text2.txt");
-    // cout << g << endl;
-    // g.dfs1(g.root);
 
-    cout << endl;
-    g.dfs2(g.root);
+    g.dfs4(g.root, history, pairs_back);
 
-    // cout << endl;
-    // g.dfs4(g.root, history, pairs_back);
+    cout << g << endl;
 
-    // cout << g << endl;
-
-    // cout << "Back edges: " << endl;
-    // for (int i = 0; i < pairs_back.size(); i++)
-    // {
-    //     cout << pairs_back[i][0] << " -> " << pairs_back[i][1] << endl;
-    // }
+    cout << "Back edges: " << endl;
+    for (int i = 0; i < pairs_back.size(); i++)
+    {
+        cout << pairs_back[i][0] << " -> " << pairs_back[i][1] << endl;
+    }
     return 0;
 }

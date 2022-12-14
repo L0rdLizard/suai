@@ -79,68 +79,68 @@ ostream &operator<<(ostream &os, graph &gr)
 //     }
 // }
 
-void graph::dfs2(int cur)
-{
-    nodes[cur].visited = true;
-    for (int i = 0; i < nodes[cur].data.size(); i++)
-    {
-        if (nodes[nodes[cur].data[i]].data.size() != 0)
-        {
-            for (int j = 0; j < nodes[nodes[cur].data[i]].data.size(); j++)
-            {
-                if (nodes[nodes[nodes[cur].data[i]].data[j]].visited2 == false)
-                {
-                    cout << nodes[nodes[cur].data[i]].data[j] << " -> " << cur << "\n";
-                    int temp_cur = cur;
-                    while (nodes[temp_cur].have_parent == true)
-                    {
-                        for (int k = 0; k < nodes[temp_cur].parent.size(); k++)
-                        {
-                            cout << nodes[nodes[cur].data[i]].data[j] << " -> " << nodes[temp_cur].parent[k] << "\n";
-                        }
-                        temp_cur = nodes[temp_cur].parent[0];
-                    }
-                }
-            }
-        }
-        dfs2(nodes[cur].data[i]);
-    }
-}
-
-// void graph::dfs4(int cur, vector<int> &history, vector<vector<int>> &pairs)
+// void graph::dfs2(int cur)
 // {
-//     // nodes[cur].visited4 = true;
-
-
-
-//     if (history.size() > 1)
-//     {
-//         for (int j = 0; j < history.size() - 1; j++)
-//         {
-//             vector<int> pair;
-//             pair.push_back(history[j]);
-//             pair.push_back(cur);
-//             pairs.push_back(pair);
-//             // cout << history[j] << " -> " << cur << "\n";
-//         }
-//     }
-
+//     nodes[cur].visited = true;
 //     for (int i = 0; i < nodes[cur].data.size(); i++)
 //     {
-//         if (nodes[nodes[cur].data[i]].visited4 == false)
+//         if (nodes[nodes[cur].data[i]].data.size() != 0)
 //         {
-//             cout << cur << " -> " << nodes[cur].data[i] << "\n";
-//             // cout << history.size() << endl;
-
-//             vector<int> temp_history = history;
-//             temp_history.push_back(cur);
-//             dfs4(nodes[cur].data[i], temp_history, pairs);
+//             for (int j = 0; j < nodes[nodes[cur].data[i]].data.size(); j++)
+//             {
+//                 if (nodes[nodes[nodes[cur].data[i]].data[j]].visited2 == false)
+//                 {
+//                     cout << nodes[nodes[cur].data[i]].data[j] << " -> " << cur << "\n";
+//                     int temp_cur = cur;
+//                     while (nodes[temp_cur].have_parent == true)
+//                     {
+//                         for (int k = 0; k < nodes[temp_cur].parent.size(); k++)
+//                         {
+//                             cout << nodes[nodes[cur].data[i]].data[j] << " -> " << nodes[temp_cur].parent[k] << "\n";
+//                         }
+//                         temp_cur = nodes[temp_cur].parent[0];
+//                     }
+//                 }
+//             }
 //         }
+//         dfs2(nodes[cur].data[i]);
 //     }
-
-//     // for (int i = 0; i < nodes[cur].data.size(); i++)
-//     // {
-
-//     // }
-//     return;
 // }
+
+void graph::dfs4(int cur, vector<int> &history, vector<vector<int>> &pairs)
+{
+    // nodes[cur].visited4 = true;
+
+
+
+    if (history.size() > 1)
+    {
+        for (int j = 0; j < history.size() - 1; j++)
+        {
+            vector<int> pair;
+            pair.push_back(history[j]);
+            pair.push_back(cur);
+            pairs.push_back(pair);
+            // cout << history[j] << " -> " << cur << "\n";
+        }
+    }
+
+    for (int i = 0; i < nodes[cur].data.size(); i++)
+    {
+        if (nodes[nodes[cur].data[i]].visited4 == false)
+        {
+            cout << cur << " -> " << nodes[cur].data[i] << "\n";
+            // cout << history.size() << endl;
+
+            vector<int> temp_history = history;
+            temp_history.push_back(cur);
+            dfs4(nodes[cur].data[i], temp_history, pairs);
+        }
+    }
+
+    // for (int i = 0; i < nodes[cur].data.size(); i++)
+    // {
+
+    // }
+    return;
+}
