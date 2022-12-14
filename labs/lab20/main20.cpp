@@ -8,18 +8,25 @@ using namespace std;
  
 int main()
 {
-    vector<int> history;
-    vector<vector<int>> pairs_back; 
-    graph g("text2.txt");
+    // vector<int> history;
+    // vector<vector<int>> pairs_back; 
+    
+    // vector<int> dots;
+    // graph g("text2.txt");
 
-    g.dfs4(g.root, history, pairs_back);
+    // cout << g << endl;
 
-    cout << g << endl;
+    // // g.dfs4(g.root, history, pairs_back);
 
-    cout << "Back edges: " << endl;
-    for (int i = 0; i < pairs_back.size(); i++)
-    {
-        cout << pairs_back[i][0] << " -> " << pairs_back[i][1] << endl;
-    }
+    // g.dfs5(g.root, history, dots);
+
+    // cout << "Back edges: " << endl;
+    // for (int i = 0; i < pairs_back.size(); i++)
+    // {
+    //     cout << pairs_back[i][1] << " -> " << pairs_back[i][0] << endl;
+    // }
+
+    
+
     return 0;
 }

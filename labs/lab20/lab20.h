@@ -8,12 +8,14 @@ using namespace std;
 struct gnode
 {
     vector<int> data;
-    vector<int> parent;
-    bool have_parent;
-    bool visited;
-    bool visited2;
-    bool visited3;
-    bool visited4;
+    // vector<int> parent;
+    // vector<int> pred;
+    // vector<int> edges;
+    // vector<int> back_edges;
+    // // bool visited;
+    // // bool visited2;
+    // // bool visited3;
+    // bool visited4;
 };
 
 class graph
@@ -25,8 +27,9 @@ public:
     int root;
     graph(const string filename);
     friend std::ostream &operator<<(std::ostream &os, graph &gr);
-    void dfs4(int cur, vector<int> &history, vector<vector<int>>& pairs);
-    void dfs1(int cur);
-    void dfs2(int cur);
-    void dfs3(int cur);
+    // void dfs4(int cur, vector<int> &history, vector<vector<int>>& pairs);
+    // void dfs1(int cur);
+    // void dfs2(int cur);
+    // void dfs3(int cur);
+    // void dfs5(int cur, vector<int> &history, vector<int> &dots);
 };

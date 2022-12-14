@@ -41,8 +41,8 @@ graph::graph(const string filename)
                     continue;
                 }
                 nodes[start_int].data.push_back(stod(val));
-                nodes[stod(val)].parent.push_back(start_int);
-                nodes[stod(val)].have_parent = true;
+                // nodes[stod(val)].parent.push_back(start_int);
+                // nodes[stod(val)].have_parent = true;
             }
         }
         file.close();
@@ -107,40 +107,67 @@ ostream &operator<<(ostream &os, graph &gr)
 //     }
 // }
 
-void graph::dfs4(int cur, vector<int> &history, vector<vector<int>> &pairs)
-{
-    // nodes[cur].visited4 = true;
+// void graph::dfs4(int cur, vector<int> &history, vector<vector<int>> &pairs)
+// {
+//     nodes[cur].visited4 = true;
 
+//     if (history.size() > 1)
+//     {
+//         for (int j = 0; j < history.size() - 1; j++)
+//         {
+//             vector<int> pair;
+//             pair.push_back(history[j]);
+//             pair.push_back(cur);
+//             pairs.push_back(pair);
+//             // cout << history[j] << " -> " << cur << "\n";
+//         }
+//     }
 
+//     for (int i = 0; i < nodes[cur].data.size(); i++)
+//     {
+//         if (nodes[nodes[cur].data[i]].visited4 == false)
+//         {
+//             cout << cur << " -> " << nodes[cur].data[i] << "\n";
+//             // cout << history.size() << endl;
 
-    if (history.size() > 1)
-    {
-        for (int j = 0; j < history.size() - 1; j++)
-        {
-            vector<int> pair;
-            pair.push_back(history[j]);
-            pair.push_back(cur);
-            pairs.push_back(pair);
-            // cout << history[j] << " -> " << cur << "\n";
-        }
-    }
+//             vector<int> temp_history = history;
+//             temp_history.push_back(cur);
+//             dfs4(nodes[cur].data[i], temp_history, pairs);
+//         }
+//     }
 
-    for (int i = 0; i < nodes[cur].data.size(); i++)
-    {
-        if (nodes[nodes[cur].data[i]].visited4 == false)
-        {
-            cout << cur << " -> " << nodes[cur].data[i] << "\n";
-            // cout << history.size() << endl;
+//     // for (int i = 0; i < nodes[cur].data.size(); i++)
+//     // {
 
-            vector<int> temp_history = history;
-            temp_history.push_back(cur);
-            dfs4(nodes[cur].data[i], temp_history, pairs);
-        }
-    }
+//     // }
+//     return;
+// }
 
-    // for (int i = 0; i < nodes[cur].data.size(); i++)
-    // {
+// void graph::dfs5(int cur, vector<int> &history, vector<int> &dots)
+// {
+//     dots.push_back(cur);
+//     for (int i = 0; i < nodes[cur].data.size(); i++)
+//     {
+//         cout << cur << " -> " << nodes[cur].data[i] << "\n";
 
-    // }
-    return;
-}
+//         if (nodes[cur].data.size() != 0)
+//         {
+//             history.push_back(cur);
+//         }
+
+//         for
+
+        
+//         dfs5(nodes[cur].data[i], history, dots);
+
+//         // cout "love you" << end;
+//         // хихи)
+//     }
+
+//     // for (int i = 0; i < nodes[cur].data.size(); i++)
+//     // {
+
+//     // }
+//     return;
+// }
+
