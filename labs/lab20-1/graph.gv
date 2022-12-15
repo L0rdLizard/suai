@@ -1,0 +1,14 @@
+digraph G {
+  1 -> 2 [color=black]
+  1 -> 5 [color=black]
+  1 -> 8 [color=blue]
+  2 -> 3 [color=black]
+  3 -> 4 [color=black]
+  4 -> 2 [color=blue]
+  5 -> 6 [color=black]
+  6 -> 3 [color=red]
+  6 -> 7 [color=black]
+  6 -> 8 [color=black]
+  8 -> 1 [color=blue]
+  8 -> 2 [color=red]
+}

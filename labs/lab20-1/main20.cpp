@@ -7,7 +7,6 @@
 
 using namespace std;
 
-// типы ребер: 0 - дерево, 1 - обратное, 2 - кросс
 enum class EdgeType
 {
     TREE,
@@ -23,12 +22,11 @@ private:
     vector<int> parent;      // родитель вершины
     int root;                // корень дерева обхода
 
-    // список ребер {(начало, конец): тип}
     map<pair<int, int>, EdgeType> edges;
 
 public:
     Graph(string filename)
-    { // конструктор
+    {
         ifstream fin(filename);
         if (!fin.is_open())
             throw runtime_error("File not found");
@@ -36,7 +34,6 @@ public:
         // cout << root << endl;
         adj.resize(0);
 
-        // Считываем список смежности
         while (!fin.eof())
         {
             vector<int> row;
@@ -55,7 +52,6 @@ public:
         depth.resize(adj.size());
         parent.resize(adj.size());
     }
-
 
     void _getEdgesDFS(int v, vector<bool> &visited)
     {
@@ -90,18 +86,14 @@ public:
             }
         }
     }
- 
+
     void getEdgesDFS()
-    { 
+    {
         vector<bool> visited(adj.size(), false);
         depth[root] = 0;
         parent[root] = -1;
         _getEdgesDFS(root, visited);
     }
- 
- 
-
-
 
     void printEdges()
     {
@@ -117,17 +109,43 @@ public:
                 cout << b << " <-- " << a << " back" << endl;
                 break;
             case EdgeType::CROSS:
-                cout << a << " --- " << b << " cross" << endl;
+                cout << a << " <-> " << b << " cross" << endl;
                 break;
             }
         }
+    }
+
+    void exportGraphviz(string filename)
+    {
+        ofstream fout(filename);
+        if (!fout.is_open())
+            throw runtime_error("File not found");
+        fout << "digraph G {" << endl;
+        for (auto edge : edges)
+        {
+            int a = edge.first.first, b = edge.first.second;
+            switch (edge.second)
+            {
+            case EdgeType::TREE:
+                fout << "  " << a << " -> " << b << " [color=black]" << endl;
+                break;
+            case EdgeType::BACK:
+                fout << "  " << a << " -> " << b << " [color=blue]" << endl;
+                break;
+            case EdgeType::CROSS:
+                fout << "  " << a << " -> " << b << " [color=red]" << endl;
+                break;
+            }
+        }
+        fout << "}";
     }
 };
 
 int main()
 {
-    // Денис лучший воооообщеее крутой 
     Graph g("text2.txt");
     g.getEdgesDFS();
     g.printEdges();
+    g.exportGraphviz("graph.gv");
+    return 0;
 }
