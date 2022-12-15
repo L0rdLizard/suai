@@ -33,6 +33,7 @@ public:
         if (!fin.is_open())
             throw runtime_error("File not found");
         fin >> root;
+        // cout << root << endl;
         adj.resize(0);
 
         // Считываем список смежности
