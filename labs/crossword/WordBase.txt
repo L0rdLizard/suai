@@ -1,0 +1,5 @@
+apple
+pineapple
+map
+pencil
+table
