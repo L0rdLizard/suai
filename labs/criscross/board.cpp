@@ -31,22 +31,17 @@ void Board::setSpot(char c, int row, int col) {
 	data[row][col] = c;
 }
 
-
-// placeList method places list of words from main on the board
 void Board::placeList(vector<string>& list){
 	for(int i=0; i<list.size(); i++)
 	{
 		if(i==0){
 			for(int j=0; j<list[0].size(); j++){
-				// place first (longest) word in middle, horizontally
 				setSpot((list[0])[j], 7, (15-list[0].size())/2 + j);
 				direction[0] = "ACROSS";
 			}
 			locations[0][0] = 7;
 			locations[0][1] = (15-list[0].size())/2;
-		} // end of i=0 if statement
-		// alternate placing words vertically and horizontally
-		// and if one doesn't work, try the other
+		}
 		if(i!=0 && i%2==0){
 			if(placeNextVer(list[i])){
 				direction[i] = "DOWN";
@@ -75,8 +70,8 @@ void Board::placeList(vector<string>& list){
 				direction[i] = " ";
 			}
 		}
-	} // end of outermost for loop
-} // end of placeList method
+	}
+}
 
 
 
@@ -127,7 +122,6 @@ bool Board::placeNextVer(string word){
 					locations[place][1] = j;
 					place++;
 					return 1;
-
 				}
 				match = 0;
 				key = 0;
