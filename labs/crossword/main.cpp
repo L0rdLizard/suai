@@ -59,4 +59,14 @@ int main()
             cout << result << endl;
         }
     }
+    for (int i = 0; i < size; i++)
+    {
+        for (int comparisonIndex = i + 1; comparisonIndex < size; comparisonIndex++)
+        {
+            string result = sharedLetters(words[i], words[comparisonIndex]);
+            crossword[i][comparisonIndex] = result;
+            cout << result << endl;
+        }
+    }
+    return 0;
 }
