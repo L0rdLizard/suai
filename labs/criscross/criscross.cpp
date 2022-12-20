@@ -81,7 +81,7 @@ int main(int argc, char *argv[])
 
     ifs.close();
 
-    Board board;
+    Board board(40, 40);
 
     sortHighLow(list);
     makeCaps(list);

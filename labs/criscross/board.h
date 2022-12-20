@@ -4,24 +4,19 @@
 class Board
 {
 private:
-	char data[15][15];
+	// char **data;
+	char **data;
 	int locations[20][2];
-	string direction[20];
 	int place;
+	unsigned int a, b;
 public:
-	Board();
+	Board(unsigned int a, unsigned int b);
 	~Board();
 	char getSpot(int, int);
-	// int getRowLoc(int);
-	// int getColLoc(int);
-	string getDir(int);
-	// void update();
 	void setSpot(char, int, int);
 	void placeList(vector<string> &);
 	bool placeNextVer(string);
 	bool placeNextHor(string);
-	int findMatch(string);
 	void printBoard();
 	void outputBoard();
-	// void printHidden();
 };
