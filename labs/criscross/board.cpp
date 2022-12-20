@@ -50,6 +50,10 @@ void Board::setSpot(char c, int row, int col)
 
 char Board::getSpot(int i, int j)
 {
+	if (i < 0 || i >= a || j < 0 || j >= b)
+	{
+		return '+';
+	}
 	return data[i][j];
 }
 
@@ -110,31 +114,30 @@ bool Board::placeNextVer(string word)
 		{
 			for (int k = 0; k < word.size(); k++)
 			{
-				if ((i + k < a) && (getSpot(i + k, j) == '_' || getSpot(i + k, j) == word[k]))
+				if (getSpot(i + k, j) == '_' || getSpot(i + k, j) == word[k])
 				{
 					match++;
 				}
 
-				if ((i + k < a) && (getSpot(i + k, j) == word[k]))
+				if (getSpot(i + k, j) == word[k])
 				{
-					if ((i + k + 1 < a) && (i + k - 1 >= 0) && (i + k - 1 < b) && (getSpot(j, i + k + 1) == '_' && getSpot(j, i + k - 1) == '_'))
+					if (getSpot(i + k + 1, j) == '_' && getSpot(i + k - 1, j) == '_')
 					{
 						match = match + 2;
 						key = 1;
 					}
 				}
 
-				if ((i + k < a) && (j + 1 < b) && (j - 1 >= 0) && (getSpot(i + k, j + 1) == '_' && getSpot(i + k, j - 1) == '_'))
+				if (getSpot(i + k, j + 1) == '_' && getSpot(i + k, j - 1) == '_')
 				{
 					match = match + 2;
 				}
 
-				if ((i + word.size() < a) && (i - 1 >= 0) && (getSpot(i - 1, j) == '_' && getSpot((i + word.size()), j) == '_'))
+				if (getSpot(i - 1, j) == '_' && getSpot((i + word.size()), j) == '_')
 				{
 					if (k == 0)
 						match = match + 2;
 				}
-
 			} // end of "k" for loop
 			if (match == 3 * word.size() + 2 && key == 1 && isPlaced == 0)
 			{
@@ -169,30 +172,31 @@ bool Board::placeNextHor(string word)
 		{
 			for (int k = 0; k < word.size(); k++)
 			{
-				if ((i + k < a) && (getSpot(j, i + k) == '_' || getSpot(j, i + k) == word[k]))
+				if (getSpot(j, i + k) == '_' || getSpot(j, i + k) == word[k])
 				{
 					match++;
 				}
 
-				if ((i + k < a) && (getSpot(j, i + k) == word[k]))
+				if (getSpot(j, i + k) == word[k])
 				{
-					if ((i + k + 1 < a) && (i + k - 1 >= 0) && (i + k - 1 < b) && (getSpot(j, i + k + 1) == '_' && getSpot(j, i + k - 1) == '_'))
+					if (getSpot(j, i + k + 1) == '_' && getSpot(j, i + k - 1) == '_')
 					{
 						match = match + 2;
 						key = 1;
 					}
 				}
 
-				if ((i + k < a) && (j + 1 < b) && (j - 1 >= 0) && (getSpot(j + 1, i + k) == '_' && getSpot(j - 1, i + k) == '_'))
+				if (getSpot(j + 1, i + k) == '_' && getSpot(j - 1, i + k) == '_')
 				{
 					match = match + 2;
 				}
 
-				if ((i + word.size() < a) && (i - 1 >= 0) && (getSpot(j, i - 1) == '_' && getSpot(j, i + word.size()) == '_'))
+				if (getSpot(j, i - 1) == '_' && getSpot(j, i + word.size()) == '_')
 				{
 					if (k == 0)
 						match = match + 2;
 				}
+
 			} // end of "k" for loop
 			if (match == 3 * word.size() + 2 && key == 1 && isPlaced == 0)
 			{
@@ -216,14 +220,11 @@ bool Board::placeNextHor(string word)
 	return 0; // return false if the word was not able to be placed horizontally
 } // end of placeNextVer method
 
-void Board::printBoard()
-{
-	for (int i = 0; i < a; i++)
-	{
-		for (int j = 0; j < b; j++)
-		{
+void Board::printBoard(){
+	for(int i=0; i<a; i++){
+		for(int j=0; j<b; j++){
 			cout << data[i][j];
-
+			
 			cout << " ";
 		}
 		cout << endl;
@@ -231,10 +232,10 @@ void Board::printBoard()
 }
 
 // output in file board.txt
-void Board::outputBoard()
+void Board::outputBoard(string output)
 {
 	ofstream fout;
-	fout.open("board.txt");
+	fout.open(output);
 	for (int i = 0; i < a; i++)
 	{
 		for (int j = 0; j < b; j++)

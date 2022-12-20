@@ -18,5 +18,5 @@ public:
 	bool placeNextVer(string);
 	bool placeNextHor(string);
 	void printBoard();
-	void outputBoard();
+	void outputBoard(string output);
 };
