@@ -26,6 +26,7 @@ void some_test()
 {
     notebook n;
     n.add("John", 123456789);
+    n.add("Jane", 2345678901);
     n.add("Mary", 987654321);
 
     cout << n.find(123456789) << endl;
@@ -36,10 +37,29 @@ void some_test()
     n.erase("John");
     cout << n.find(123456789) << endl;
 
+    cout << "----------------" << endl;
+
     cout << n << endl;
 
     n.save("phonebook.txt");
     // n.load("phonebook.txt");
+}
+
+void some_test2(){
+    notebook n;
+    n.add("Sergey", 123456789);
+    n.add("Max", 2345678901);
+    n.add("Denis", 987654321);
+    cout << n;
+    cout << "----------------" << endl;
+    cout << n.find(123456789) << endl;
+    n.erase("Sergey");
+    cout << "----------------" << endl;
+    cout << n.find("Max") << endl;
+    n.erase("Max");
+    cout << "----------------" << endl;
+    cout << n.find("Denis") << endl;
+    cout << n;
 }
 
 void test_save_file()
@@ -58,6 +78,11 @@ void test_load_file()
     notebook n1;
 
     n1.load("phonebook.txt");
+    cout << n1;
+    cout << "----------------" << endl;
+    n1.add("Jack", 3456789012);
+    n1.add("Max", 2345678901);
+
     cout << n1;
 }
 
@@ -108,13 +133,16 @@ int main()
     // test_yaml();
 
     // notebook n;
-    notebook n2;
+    // some_test();
+    // test_load_file();
+    some_test2();
+    // notebook n2;
 
     // n.add("John", 123456789);
     // n.add("Mary", 987654321);
     // n.saveyaml("outfile.yaml");
 
-    n2.loadyaml("outfile.yaml");
-    cout << n2 << endl;
+    // n2.loadyaml("outfile.yaml");
+    // cout << n2 << endl;
     return 0;
 }
