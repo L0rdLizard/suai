@@ -1,8 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <string>
+#include <fstream>
+#include "CLI/CLI11.hpp"
+
 using namespace std;
 
+#define EXEC "PointInPolygon.exe"
+#define TITLE "\nPointInPolygon\n"
+#define FOOTER \
+    "Created with <3 by Dmityi Zykov at SUAI University"
+
+class Settings
+{
+public:
+    string file_in;
+	int x = 0;
+	int y = 0;
+};
 
 struct pt {
 	int x, y;
@@ -12,11 +28,6 @@ struct ang {
 	int a, b;
 };
 
-// bool operator < (const ang & p, const ang & q) {
-// 	if (p.b == 0 && q.b == 0)
-// 		return p.a < q.a;
-// 	return p.a * 1ll * q.b < p.b * 1ll * q.a;
-// }
 
 bool operator < (const ang & p, const ang & q) {
 	if (p.b == 0 && q.b == 0)
@@ -24,22 +35,55 @@ bool operator < (const ang & p, const ang & q) {
 	return p.a * q.b < p.b * q.a;
 }
 
-// long long sq (pt & a, pt & b, pt & c) {
-// 	return a.x*1ll*(b.y-c.y) + b.x*1ll*(c.y-a.y) + c.x*1ll*(a.y-b.y);
-// }
 
 int sq (pt & a, pt & b, pt & c) {
 	return a.x*(b.y-c.y) + b.x*(c.y-a.y) + c.x*(a.y-b.y);
 }
 
-int main() {
+void readPoints(vector<pt> &p, int n, ifstream &fin) {
+	for (int i=0; i<n; ++i) {
+		fin >> p[i].x >> p[i].y;
+	}
+}
+
+int main(int argc, char *argv[]) {
+	Settings settings;
+	CLI::App app{TITLE};
+	app.footer(FOOTER);
+	app.add_option("input", settings.file_in, "Input file")->option_text("FILE")->required();
+	app.add_option("-x", settings.x, "X coordinate of point")->option_text("POINT_X")->required();
+	app.add_option("-y", settings.y, "Y coordinate of point")->option_text("POINT_Y")->required();
+	CLI11_PARSE(app, argc, argv);
+
+	if (settings.file_in.empty())
+    {
+        cout << "No file specified" << endl;
+        cout << "Use -h or --help to see usage" << endl;
+        return 0;
+    }
+
+	ifstream fin(settings.file_in);
+	if (!fin.is_open())
+	{
+		cout << "File " << settings.file_in << " not found" << endl;
+		return 0;
+	}
 
 	int n;
-	cin >> n;
+	fin >> n;
 	vector<pt> p (n);
+	readPoints(p, n, fin);
+
+	fin.close();
+
+	// int n;
+	// ifstream fin("input.txt");
+	// fin >> n;
+	// vector<pt> p (n);
+	// readPoints(p, n, fin);
+
 	int zero_id = 0;
 	for (int i=0; i<n; ++i) {
-		scanf ("%d%d", &p[i].x, &p[i].y);
 		if (p[i].x < p[zero_id].x || p[i].x == p[zero_id].x && p[i].y < p[zero_id].y)
 			zero_id = i;
 	}
@@ -58,8 +102,10 @@ int main() {
 
 	for (;;) {
 		pt q;
-        cout << "Enter point coordinates: ";
-        scanf ("%d%d", &q.x, &q.y);
+		q.x = settings.x;
+		q.y = settings.y;
+        // cout << "Enter point coordinates: ";
+        // scanf ("%d%d", &q.x, &q.y);
 		bool in = false;
 		if (q.x >= zero.x)
 			if (q.x == zero.x && q.y == zero.y)
