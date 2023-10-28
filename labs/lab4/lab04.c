@@ -29,3 +29,6 @@ int main()
     printf("%c", words);
     return 0;
 }
+
+Ребята я грустный туалет 
+
