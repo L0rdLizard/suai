@@ -2,7 +2,7 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc build active file folder (subfolders)",
+            "label": "C/C++: gcc build active folder (subfolders)",
             "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
@@ -23,7 +23,7 @@
         },
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc build active file folder",
+            "label": "C/C++: gcc build active folder",
             "command": "/usr/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",

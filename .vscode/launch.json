@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "gcc - Build and debug active file sec (subfolders)",
+            "name": "gcc - Build and debug active folder sec (subfolders)",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/compile/${fileBasenameNoExtension}",
@@ -22,11 +22,11 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: gcc build active file folder (subfolders)",
+            "preLaunchTask": "C/C++: gcc build active folder (subfolders)",
             "miDebuggerPath": "/usr/bin/gdb"
         },
         {
-            "name": "gcc - Build and debug active file sec",
+            "name": "gcc - Build and debug active folder sec",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/compile/${fileBasenameNoExtension}",
@@ -43,7 +43,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "C/C++: gcc build active file folder",
+            "preLaunchTask": "C/C++: gcc build active folder",
             "miDebuggerPath": "/usr/bin/gdb"
         },
         {
