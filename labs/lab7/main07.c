@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
         long data;
         int d = 0;
         printf("enter the number and system definition\n");
-        scanf("%ld", &data);
+        scanf_s("%ld", &data);
         if (data == -1) exit(1);
-        scanf("%d", &d);
+        scanf_s("%d", &d);
         if (d == -1) exit(1);
         ltoab(data, p, d);
         printf("%s\n", p, d);

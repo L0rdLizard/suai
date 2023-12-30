@@ -2,6 +2,9 @@
 #define LAB012_H_
 #include <time.h>
 #include <string.h>
+#include <string>
+
+using namespace std;
 
 class DataAndTime
 {
@@ -19,17 +22,18 @@ public:
 
 class Birthday {
     public:
-        void set_name(std::string b_name)
+
+        void set_name(string b_name)
         {
             name = b_name;
         }
 
-        std::string get_name()
+        string get_name()
         {
             return name;
         }
 
-        void set_last_name(std::string b_last_name)
+        void set_last_name(string b_last_name)
         {
             last_name = b_last_name;
         }
@@ -46,9 +50,9 @@ class Birthday {
 
         int date[3];
 
-        std::string name;
+        string name;
 
-        std::string last_name;
+        string last_name;
 };
 
 #endif

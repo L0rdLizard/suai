@@ -25,7 +25,7 @@ char *DataAndTime::getgmTime()
 
 
 
-void Birthday::set_name(std::string b_name)
+void Birthday::set_name(string b_name)
 {
     name = b_name;
 }
@@ -35,7 +35,7 @@ std::string Birthday::get_name()
     return name;
 }
 
-void Birthday::set_last_name(std::string b_last_name)
+void Birthday::set_last_name(string b_last_name)
 {
     last_name = b_last_name;
 }

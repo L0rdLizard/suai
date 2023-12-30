@@ -23,7 +23,8 @@
                 }
             ],
             "preLaunchTask": "C/C++: gcc build active folder (subfolders)",
-            "miDebuggerPath": "/usr/bin/gdb"
+            // "miDebuggerPath": "/usr/bin/gdb"
+            "miDebuggerPath": "C:/msys64/mingw64/bin/gdb"
         },
         {
             "name": "gcc - Build and debug active folder sec",
@@ -44,7 +45,8 @@
                 }
             ],
             "preLaunchTask": "C/C++: gcc build active folder",
-            "miDebuggerPath": "/usr/bin/gdb"
+            // "miDebuggerPath": "/usr/bin/gdb"
+            "miDebuggerPath": "C:/msys64/mingw64/bin/gdb"
         },
         {
             "name": "gcc - Build and debug active file sec course",

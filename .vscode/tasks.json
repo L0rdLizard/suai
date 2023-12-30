@@ -3,14 +3,15 @@
         {
             "type": "cppbuild",
             "label": "C/C++: gcc build active folder (subfolders)",
-            "command": "/usr/bin/g++",
+            // "command": "/usr/bin/g++",
+            "command": "C:/msys64/mingw64/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${fileDirname}/*.cpp",
-                "${fileDirname}/*/*.cpp",
+                "${fileDirname}\\*.cpp",
+                "${fileDirname}\\*\\*.cpp",
                 "-o",
-                "${workspaceFolder}/compile/${fileBasenameNoExtension}"
+                "${workspaceFolder}\\compile\\${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/compile"
@@ -24,14 +25,15 @@
         {
             "type": "cppbuild",
             "label": "C/C++: gcc build active folder",
-            "command": "/usr/bin/g++",
+            // "command": "/usr/bin/g++",
+            "command": "C:/msys64/mingw64/bin/g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${fileDirname}/*.cpp",
+                "${fileDirname}\\*.cpp",
                 "/usr/local/lib/libyaml-cpp.a",
                 "-o",
-                "${workspaceFolder}/compile/${fileBasenameNoExtension}"
+                "${workspaceFolder}\\compile\\${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/compile"
